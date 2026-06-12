@@ -1,0 +1,215 @@
+
+/* =========================================
+   13. 404 PAGE
+========================================= */
+
+.tsln404Page{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding-top: 4em;
+  justify-content:center;
+  padding:var(--container-padding);
+  background:var(--tsln-bg);
+}
+
+.tsln404Inner{
+  width:min(100%,70rem);
+  text-align:center;
+}
+
+.tslnBadge{
+  position:relative;
+  padding-top: 2rem;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:8rem;
+  min-height:8rem;
+  margin:0 auto;
+  padding:2rem 4.1rem;
+  border-radius:var(--radius-full);
+  font-size:var(--text-hero);
+  font-style: italic;
+  font-weight:var(--font-weight-title);
+  color:var(--tsln-white);
+  background:var(--tsln-blue);
+  box-shadow:var(--shadow-sm);
+  animation:
+    tslnBadgeFloat 4s ease-in-out infinite,
+    tslnBadgePulse 2.5s ease-in-out infinite;
+}
+
+.tslnBadge::before{
+  content:"";
+  position:absolute;
+  inset:-10px;
+  border-radius:inherit;
+  border:2px solid var(--tsln-border);
+  animation:tslnBadgeRing 3s linear infinite;
+}
+
+@keyframes tslnBadgeFloat{
+  0%{ transform:translateY(0); }
+  50%{ transform:translateY(-18px); }
+  100%{ transform:translateY(0); }
+}
+
+@keyframes tslnBadgePulse{
+  0%{
+    box-shadow:0 0 0 rgba(0,69,197,.12), 0 0 20px rgba(0,69,197,.12);
+  }
+
+  50%{
+    box-shadow:0 0 28px rgba(0,69,197,.18), 0 0 60px rgba(0,69,197,.18);
+  }
+
+  100%{
+    box-shadow:0 0 0 rgba(0,69,197,.12), 0 0 20px rgba(0,69,197,.12);
+  }
+}
+
+@keyframes tslnBadgeRing{
+  0%{ transform:scale(.95); opacity:.8; }
+  50%{ transform:scale(1.08); opacity:.25; }
+  100%{ transform:scale(.95); opacity:.8; }
+}
+
+.tsln404Inner h1{
+  margin:1.25rem 0 1rem;
+  color:var(--tsln-blue-dark);
+  font-size:var(--text-xxl);
+  font-weight:var(--font-weight-title);
+  line-height:var(--lh-tight);
+  letter-spacing:var(--letter-tight);
+}
+
+.tsln404Inner p{
+  max-width:100%;
+  margin:0 auto;
+  color:var(--tsln-blue-dark);
+  font-size:var(--text-md);
+  font-weight: var(--font-weight-medium);
+  line-height:var(--lh-normal);
+}
+
+.tsln404Help{
+  margin-top:2rem;
+}
+
+.tsln404Tools{
+  padding: 2rem 0;
+}
+/* Search button inside 404 page */
+
+.tsln404Page .tsln404SearchBtn{
+  width:min(100%, 34rem);
+  max-width:34rem;
+  min-height:3.35rem;
+  margin:1.5rem auto 0;
+  border:1px solid var(--tsln-blue);
+  border-radius:var(--radius-sm);
+  background:var(--tsln-white);
+  color:var(--tsln-blue-dark);
+  box-shadow:var(--shadow-sm);
+}
+
+.tsln404Page .tsln404SearchBtn:hover{
+  transform:translateY(-1px);
+  box-shadow:var(--shadow-md);
+}
+
+.tsln404Page .tsln404SearchBtn .tslnSearchBarIcon{
+  width:2.2rem;
+  height:2.2rem;
+  color:var(--tsln-blue);
+}
+
+.tsln404Page .tsln404SearchBtn .tslnSearchBarText{
+  color:var(--tsln-muted);
+}
+
+.tsln404Page .tslnActions .tsln404SearchBtn{
+  flex:0 1 34rem;
+}
+
+.tsln404DetailsBtn{
+  min-height:3rem;
+  padding:0 1.2rem;
+  border:1px solid var(--tsln-bg-muted);
+  border-radius:var(--radius-sm);
+  background:var(--tsln-white);
+  color:var(--tsln-blue-dark);
+  font-size: var(--text-md);
+  font-weight:var(--font-weight-medium);
+  cursor:pointer;
+  transition:var(--transition-fast);
+}
+
+.tsln404DetailsBtn:hover{
+  border-color:var(--tsln-muted);
+  background: var(--tsln-muted);
+  color:var(--tsln-white);
+}
+
+.tsln404Details{
+  margin:1.5rem auto 0;
+  padding:1.5rem;
+  max-width:48rem;
+  text-align:left;
+  border-top: 1px solid var(--tsln-muted);
+  background:var(--tsln-white);
+  box-shadow:var(--shadow-xs);
+}
+
+.tsln404Details h2,
+.tsln404Details h3{
+  margin:0 0 .75rem;
+  color:var(--tsln-blue-dark);
+}
+
+.tsln404Details h3{
+  margin-top:1.5rem;
+}
+
+.tsln404ErrorTitle{
+  font-weight:var(--font-weight-medium);
+}
+
+.tsln404Details code{
+  display:inline-flex;
+  margin-top:1rem;
+  padding:.75rem .75rem;
+  border-radius:var(--radius-sm);
+  background:var(--tsln-bg-muted);
+  color:var(--tsln-blue-dark);
+  font-weight:var(--font-weight-medium);
+}
+
+.tsln404Details ul{
+  margin:1rem 0 0 1.25rem;
+  padding:0;
+}
+
+.tsln404Details li{
+  margin-bottom:.35rem;
+  color:var(--tsln-muted);
+  line-height:1.6;
+}
+
+@media(max-width:768px){
+
+  .tslnBadge{
+    min-width:6.5rem;
+    min-height:6.5rem;
+    padding:1.5rem 2.5rem;
+    font-size:var(--text-hero);
+    box-shadow:var(--shadow-xs);
+  }
+
+  .tslnBadge::before{
+    inset:-6px;
+    border-width:1px;
+  }
+
+}

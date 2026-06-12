@@ -1,0 +1,392 @@
+:root {
+--radius-sm:.5rem;
+  --radius-xl:1.5rem;
+  --radius-full:999px;
+
+   --font-weight-text:300;
+  --font-weight-medium:500;
+  --font-weight-title:700;
+  --font-weight-h1:900;
+
+  --text-xs:.75rem;
+  --text-md:1rem;
+  --text-lg:1.125rem;
+  --text-xl:clamp(1.5rem,8vw,2rem);
+  --text-xxl:clamp(1.8rem,8vw,2.5rem);
+  --text-hero:clamp(2.8rem,8vw,5.4rem);
+
+  --lh-tight:1.20;
+  --lh-normal:1.25;
+
+  --letter-tight:-.06em;
+  --letter-normal:0.01em;
+
+}
+
+/* =========================================
+   ABOUT OVERVIEW
+========================================= */
+
+.tslnAboutOverview{
+  width:100%;
+  padding:4rem var(--container-padding);
+}
+
+.tslnAboutOverviewInner{
+  width:min(100%, var(--container-max));
+  margin-inline:auto;
+  display:grid;
+  grid-template-columns:minmax(18rem, .58fr) minmax(0, 1.42fr);
+  gap:2rem;
+  align-items:stretch;
+}
+
+.tslnFounderCard{
+  order:1;
+}
+
+.tslnAboutCompany{
+  order:2;
+}
+
+/* COMPANY */
+
+.tslnAboutCompany{
+  display:flex;
+  flex-direction:column;
+  background:var(--tsln-white);
+  height:100%;
+}
+
+.tslnAboutSection{
+  margin-top:2rem;
+}
+
+.tslnAboutSection h3{
+  margin:0 0 .75rem;
+  color:var(--tsln-blue-dark);
+  font-size:1.15rem;
+  font-weight:var(--font-weight-title);
+  line-height:1.3;
+}
+
+.tslnAboutSection p{
+  margin:0;
+}
+
+
+.tslnAboutCompany p{
+  margin:0 0 1rem;
+  color:var(--tsln-blue-dark);
+  line-height:1.8;
+}
+
+.tslnAboutCompany p:last-child{
+  margin-bottom:0;
+}
+
+/* =========================================
+   FOUNDER CARD
+========================================= */
+
+.tslnFounderCard{
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border-radius:var(--radius-sm);
+}
+
+.tslnFounderPhotoWrap{
+  background:transparent;
+}
+
+.tslnFounderPhoto{
+  position:relative;
+  width:100%;
+  height:20rem;
+  overflow:hidden;
+  border-radius:var(--radius-sm);
+  background:var(--tsln-bg-muted);
+  box-shadow:var(--shadow-sm);
+}
+
+.tslnFounderImg{
+  object-fit:cover;
+  border-radius:var(--radius-sm);
+  object-position:center top;
+}
+
+.tslnFounderBody{
+  display:flex;
+  flex-direction:column;
+  gap:.75rem;
+  padding:1.5rem;
+}
+
+.tslnFounderLabel{
+  display:inline-flex;
+  color:var(--tsln-muted);
+  font-size:var(--text-sm);
+  font-weight:var(--font-weight-title);
+  text-transform:none;
+  letter-spacing:.08em;
+}
+
+.tslnFounderBody h3{
+  margin:0;
+  color:var(--tsln-blue-dark);
+  font-size:var(--text-lg);
+  letter-spacing: var(--normal);
+  font-weight:var(--font-weight-title);
+}
+
+.tslnFounderBody p{
+  margin-top:1rem;
+  font-size: var(--text-sm);
+  color:var(--tsln-muted);
+  line-height:1.7;
+}
+
+
+
+
+
+/* =========================================
+   ABOUT REGIONS
+========================================= */
+
+.tslnAboutRegions{
+  width:100%;
+  padding:3rem var(--container-padding);
+  margin-bottom: 2rem;
+}
+
+.tslnAboutRegionsInner{
+  width:min(100%, var(--container-max));
+  margin-inline:auto;
+}
+
+.tslnAboutRegionsGrid{
+  display:flex;
+  align-items:stretch;
+  justify-content:space-between;
+  gap:1rem;
+}
+
+.tslnAboutRegionCard{
+  flex:1;
+  width: 100%;
+  min-height:11rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:1rem;
+  padding:0;
+  background:var(--tsln-white);
+}
+
+.tslnAboutRegionFlag{
+  position:relative;
+  width:10rem;
+  height:6rem;
+  overflow:hidden;
+  border-radius:var(--radius-xs);
+  box-shadow:var(--shadow-xs);
+  background:var(--tsln-bg-muted);
+}
+
+.tslnAboutRegionImg{
+  object-fit:cover;
+}
+
+.tslnAboutRegionCard h3{
+  margin:0;
+  color:var(--tsln-blue-dark);
+  font-size:var(--text-md);
+  font-weight:var(--font-weight-title);
+  text-align:center;
+}
+
+
+/* =========================================
+   ABOUT NEXT
+========================================= */
+
+.tslnAboutNext{
+  width:100%;
+  padding:0rem var(--container-padding);
+  background: var(--tsln-blue);
+}
+
+.tslnAboutNext:hover{
+    background: var(--tsln-blue-dark);
+}
+
+.tslnAboutNextInner{
+  width:min(100%, var(--container-max));
+  margin-inline:auto;
+}
+
+.tslnAboutNextCard{
+  width:100%;
+  max-width:60rem;
+  margin: 0 auto;
+  display:flex;
+  align-items:center;
+  gap:1.5rem;
+  padding:1rem;
+  border-radius:var(--radius-md);
+  background:transparent;
+  color:var(--tsln-blue-dark);
+  text-decoration:none;
+  transition:var(--transition-normal);
+}
+
+.tslnAboutNextCard:hover{
+  transform:translateY(-1px);
+  border-color:var(--tsln-blue);
+  box-shadow:var(--shadow-xs);
+  background: transparent;
+}
+
+.tslnAboutNextMedia{
+  position:relative;
+  width:30rem;
+  height:30rem;
+  flex-shrink:0;
+  overflow:hidden;
+  margin-bottom: 2em;
+  border-radius:var(--radius-full);
+  background:var(--tsln-blue-dark);
+}
+
+.tslnAboutNextMedia:hover{
+    background: var(--tsln-bg-muted);
+}
+
+.tslnAboutNextImg{
+  object-fit:cover;
+}
+
+.tslnAboutNextCard h3{
+  margin:0;
+  color:var(--tsln-white);
+  text-transform: uppercase;
+  font-size:var(--text-xl);
+  font-weight:var(--font-weight-title);
+  line-height:1.3;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .tslnAboutNext{
+    padding:2rem 1rem;
+  }
+
+  .tslnAboutNextCard{
+    max-width:none;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+  }
+
+  .tslnAboutNextMedia{
+    width:20.5rem;
+    height:20.5rem;
+    border-radius:var(--radius-full);
+  }
+}
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .tslnAboutRegions{
+    padding:3rem 1rem;
+  }
+
+  .tslnAboutRegionsGrid{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .tslnAboutRegionCard{
+    min-height:auto;
+    flex-direction:row;
+    justify-content:flex-start;
+    padding:0;
+  }
+
+  .tslnAboutRegionFlag{
+    width:6rem;
+    height:6rem;
+    flex-shrink:0;
+  }
+
+  .tslnAboutRegionCard h3{
+    text-align:left;
+  }
+}
+
+
+/* =====================================
+   TABLET
+========================================= */
+
+@media(max-width:1024px){
+
+  .tslnFounderPhoto{
+    height:20rem;
+  }
+
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  .tslnAboutOverview{
+    padding:3rem 1rem;
+  }
+
+  .tslnAboutOverviewInner{
+    grid-template-columns:1fr;
+  }
+
+  .tslnAboutOverviewInner{
+    grid-template-columns:1fr;
+  }
+
+  .tslnAboutCompany{
+    order:1;
+  }
+
+  .tslnFounderCard{
+    order:2;
+  }
+
+  .tslnAboutCompany{
+    order:1;
+    padding:.10rem;
+  }
+
+
+  .tslnFounderPhotoWrap{
+    padding:0;
+  }
+
+  .tslnFounderPhoto{
+    height:18rem;
+  }
+
+  .tslnFounderBody{
+    padding:1.25rem;
+  }
+
+}

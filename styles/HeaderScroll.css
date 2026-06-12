@@ -1,0 +1,72 @@
+/* =========================================
+   HEADER SCROLL SEPARATOR
+========================================= */
+
+.tslnHeaderSeparator{
+  width:min(100%, var(--container-max));
+  margin-inline:auto;
+  padding:0;
+
+  display:flex;
+  align-items:center;
+  gap:.35rem;
+
+  opacity:var(--tsln-separator-progress);
+
+  transform:translateX(
+    calc((1 - var(--tsln-separator-progress)) * -1rem)
+  );
+
+  transition:
+    opacity .95s ease,
+    transform .8s ease;
+}
+
+.tslnHeaderSeparatorLine{
+  height:40px;
+  flex:1;
+
+  background:var(--tsln-blue);
+  opacity:1;
+
+  transform:scaleX(var(--tsln-separator-progress));
+  transform-origin:left center;
+
+  transition:transform .8s ease;
+}
+
+.tslnHeaderSeparatorDate{
+  flex-shrink:0;
+
+  color:var(--tsln-blue-dark);
+  opacity:1;
+
+  font-size:var(--text-xs);
+  font-weight:var(--font-weight-medium);
+  white-space:nowrap;
+
+  transform:translateX(
+    calc((1 - var(--tsln-separator-progress)) * .65rem)
+  );
+
+  transition:transform .8s ease;
+}
+
+body.tslnMenuOpen .tslnHeaderSeparator,
+body.tslnSearchOpen .tslnHeaderSeparator{
+  display:none;
+}
+
+@media(max-width:768px){
+  .tslnHeaderSeparator{
+    padding:0;
+    gap:.2rem;
+  }
+
+  .tslnHeaderSeparatorDate{
+    max-width:10rem;
+    overflow:hidden;
+    padding:0;
+    text-overflow:ellipsis;
+  }
+}

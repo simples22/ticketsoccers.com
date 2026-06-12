@@ -1,0 +1,62 @@
+/* =========================================
+   TRUST GRID
+========================================= */
+
+.tslnTrustGridSection{
+  width:100%;
+  padding:3rem var(--container-padding);
+  background: #73ff0000;
+  margin-bottom: 0;
+}
+
+.tslnTrustGrid{
+  width:min(100%, var(--container-max));
+  margin-inline:auto;
+  display:flex;
+  align-items:stretch;
+  gap:1rem;
+}
+
+.tslnTrustCard{
+  flex:1;
+  min-height:12rem;
+  padding:1.5rem;
+  border-radius:0;
+  background:var(--tsln-white);
+}
+
+.tslnTrustCard h3{
+  margin:0 0 .75rem;
+  color:var(--tsln-blue-dark);
+  font-size:var(--text-xl);
+  font-weight:var(--font-weight-h1);
+  line-height:var(--lh-normal);
+}
+
+.tslnTrustCard p{
+  margin:0;
+  color:var(--tsln-blue-dark);
+  font-weight: var(--font-weight-medium);
+  line-height:var(--lh-normal);
+}
+
+@media(max-width:768px){
+
+  .tslnTrustGridSection{
+    padding:2rem 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .tslnTrustGrid{
+    flex-direction:column;
+  }
+
+  .tslnTrustCard{
+    min-height:8rem;
+  border-bottom: 0;
+  }
+
+  .tslnTrustCard h3{
+  font-size:1.5rem;
+}
+}

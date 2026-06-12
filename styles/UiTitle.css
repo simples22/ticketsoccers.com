@@ -1,0 +1,59 @@
+/* =========================================
+   UI TITLE
+========================================= */
+
+.uiTitle{
+  position:relative;
+  display:inline-block;
+  margin:0 0 1.25rem;
+  color:var(--tsln-blue-dark);
+  font-size:var(--text-lg);
+  font-weight:var(--font-weight-title);
+  line-height:var(--lh-tight);
+  letter-spacing:var(--letter-tight);
+}
+
+.uiTitle::after{
+  content:"";
+  position:absolute;
+  left:0;
+  padding: .10rem;
+  bottom:-.5rem;
+  width:4rem;
+  height:.25rem;
+  border-radius:var(--radius-xs);
+  background:var(--tsln-blue);
+}
+
+.uiTitleCenter{
+  display:block;
+  text-align:center;
+}
+
+.uiTitleCenter::after{
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.uiTitleLight{
+  color:var(--tsln-white);
+}
+
+.uiTitleLight::after{
+  background:var(--tsln-white);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .uiTitle{
+    font-size:var(--text-lg);
+  }
+
+  .uiTitle::after{
+    width:3rem;
+    height:.2rem;
+  }
+
+}

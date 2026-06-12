@@ -1,0 +1,171 @@
+/* =========================================
+   UI SKELETON UNIVERSAL
+========================================= */
+
+.uiSkeletonPage{
+  width:100%;
+  padding:2rem var(--container-padding);
+}
+
+.uiSkeletonHeader,
+.uiSkeletonSection,
+.uiSkeletonFooter,
+.uiSkeletonAccordion span,
+.uiSkeletonLine{
+  position:relative;
+  overflow:hidden;
+  background:var(--tsln-bg-muted);
+}
+
+.uiSkeletonHeader,
+.uiSkeletonSection,
+.uiSkeletonFooter{
+  width:min(100%, var(--container-max));
+  margin-inline:auto;
+  border-radius:var(--radius-sm);
+}
+
+.uiSkeletonHeader{
+  height:4rem;
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  padding:1rem;
+}
+
+.uiSkeletonHeader span{
+  height:1rem;
+  border-radius:var(--radius-full);
+  background:var(--tsln-border);
+}
+
+.uiSkeletonHeader span:nth-child(1){ width:10rem; margin-right:auto; }
+.uiSkeletonHeader span:nth-child(2){ width:6rem; }
+.uiSkeletonHeader span:nth-child(3){ width:6rem; }
+
+.uiSkeletonSection{
+  min-height:16rem;
+  margin-top:2rem;
+  padding:2rem;
+}
+
+.uiSkeletonLines{
+  display:grid;
+  gap:.75rem;
+}
+
+.uiSkeletonLine{
+  display:block;
+  height:1rem;
+  border-radius:var(--radius-full);
+}
+
+.uiSkeletonLine.title{
+  width:min(100%, 28rem);
+  height:2rem;
+}
+
+.uiSkeletonLine.text:nth-child(1){ width:100%; }
+.uiSkeletonLine.text:nth-child(2){ width:82%; }
+.uiSkeletonLine.text:nth-child(3){ width:64%; }
+
+.uiSkeletonLine.button{
+  width:10rem;
+  height:2.75rem;
+  margin-top:1rem;
+  border-radius:var(--radius-full);
+}
+
+.uiSkeletonAccordion{
+  width:min(100%, var(--container-max));
+  margin:2rem auto 0;
+  display:grid;
+  gap:.85rem;
+}
+
+.uiSkeletonAccordion span{
+  height:4rem;
+  border-radius:var(--radius-sm);
+}
+
+.uiSkeletonFooter{
+  height:10rem;
+  margin-top:2rem;
+}
+
+.uiSkeletonHeader::after,
+.uiSkeletonSection::after,
+.uiSkeletonFooter::after,
+.uiSkeletonAccordion span::after,
+.uiSkeletonLine::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  transform:translateX(-100%);
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.45),
+    transparent
+  );
+  animation:uiSkeletonWave 1.4s ease-in-out infinite;
+}
+
+@keyframes uiSkeletonWave{
+  100%{
+    transform:translateX(100%);
+  }
+}
+
+
+/* =========================================
+   NETWORK STATUS OVERLAY
+========================================= */
+
+.tslnNetworkOverlay{
+  position:fixed;
+  inset:0;
+  z-index:99997;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:1rem;
+  background:rgba(255,255,255,.82);
+  backdrop-filter:blur(10px);
+}
+
+.tslnNetworkCard{
+  width:min(100%, 34rem);
+  padding:1.5rem;
+  border-radius:var(--radius-md);
+  background:var(--tsln-white);
+  box-shadow:var(--shadow-md);
+  border:1px solid var(--tsln-border);
+}
+
+.tslnNetworkCard h2{
+  margin:0 0 .75rem;
+  color:var(--tsln-blue-dark);
+}
+
+.tslnNetworkCard p{
+  margin:0 0 1rem;
+  color:var(--tsln-muted);
+  line-height:1.7;
+}
+
+
+@media(max-width:768px){
+  .uiSkeletonPage{
+    padding:1rem;
+  }
+
+  .uiSkeletonSection{
+    padding:1rem;
+  }
+
+  .uiSkeletonHeader span:nth-child(2),
+  .uiSkeletonHeader span:nth-child(3){
+    display:none;
+  }
+}
