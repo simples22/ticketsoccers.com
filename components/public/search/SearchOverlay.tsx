@@ -45,7 +45,7 @@ function getWidgetSelector() {
 }
 
 function removeExternalWidgetNodes(container?: HTMLDivElement | null) {
-  document.querySelectorAll(getWidgetSelector()).forEach((node) => {
+  document.querySelectorAll('script[src*="tpwidg.com"]').forEach((node) => {
     if (container && container.contains(node)) return;
     node.remove();
   });
@@ -113,13 +113,10 @@ export default function SearchOverlay({
     removeExternalWidgetNodes(searchWidgetRef.current);
     injectWidget(searchWidgetRef.current, defaultKeyword);
 
-    const observer = new MutationObserver(() => {
-      removeExternalWidgetNodes(searchWidgetRef.current);
-    });
+    const observer = new MutationObserver(() => {});
 
     observer.observe(document.body, {
-      childList: true,
-      subtree: true,
+      childList: false,
     });
 
     return () => {
