@@ -44,13 +44,13 @@ export default function Home() {
               </div>
             </div>
           </section>
-          <Publicity />
+            <Publicity />
 
-          <ChronoPageBtn
-            image="/images/hero/stadium.jpg"
-            />
+              <ChronoPageBtn
+                  image="/images/hero/stadium.jpg"
+                  />
+                <SponsoredGrid />
             <TrustGrid />
-      <SponsoredGrid />
       <HomeFaqs />
     </main>
     </>

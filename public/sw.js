@@ -1,12 +1,20 @@
-const CACHE_NAME = "ticketsoccers-static-v1";
+const CACHE_NAME = "ticketsoccers-static-v2";
 
 const STATIC_ASSETS = [
   "/",
-  "/manifest.webmanifest",
   "/logo.png",
   "/icons/icon-192.png",
   "/icons/icon-512.png",
 ];
+
+const EXTERNAL_BLOCKLIST = [
+  "tpwidg.com",
+  "ticketnetwork.com",
+];
+
+function isExternalWidgetRequest(url) {
+  return EXTERNAL_BLOCKLIST.some((domain) => url.hostname.includes(domain));
+}
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -35,29 +43,59 @@ self.addEventListener("fetch", (event) => {
 
   if (request.method !== "GET") return;
 
-  event.respondWith(
-    caches.match(request).then((cached) => {
-      if (cached) return cached;
+  const url = new URL(request.url);
 
-      return fetch(request)
+  // Do not cache external ticket widgets.
+  // Let tpwidg / TicketNetwork always load fresh CSS, JS, iframe, and assets.
+  if (isExternalWidgetRequest(url)) {
+    event.respondWith(fetch(request));
+    return;
+  }
+
+  // Network-first for HTML pages.
+  if (request.mode === "navigate") {
+    event.respondWith(
+      fetch(request)
         .then((response) => {
           const copy = response.clone();
 
-          if (
-            request.url.includes("/_next/static/") ||
-            request.destination === "style" ||
-            request.destination === "script" ||
-            request.destination === "image" ||
-            request.destination === "font"
-          ) {
-            caches.open(CACHE_NAME).then((cache) => {
-              cache.put(request, copy);
-            });
-          }
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(request, copy);
+          });
 
           return response;
         })
-        .catch(() => caches.match("/"));
-    })
-  );
+        .catch(() => caches.match(request).then((cached) => cached || caches.match("/")))
+    );
+
+    return;
+  }
+
+  // Cache-first for local static assets only.
+  if (
+    url.origin === self.location.origin &&
+    (
+      url.pathname.startsWith("/_next/static/") ||
+      request.destination === "style" ||
+      request.destination === "script" ||
+      request.destination === "image" ||
+      request.destination === "font"
+    )
+  ) {
+    event.respondWith(
+      caches.match(request).then((cached) => {
+        if (cached) return cached;
+
+        return fetch(request).then((response) => {
+          const copy = response.clone();
+
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(request, copy);
+          });
+
+          return response;
+        });
+      })
+    );
+  }
 });
