@@ -383,12 +383,9 @@ body.tslnSearchOpen .tslnHeader{
 .tslnSearchModal{
   position:relative;
   z-index:2;
-
   width:min(100%, 58rem);
   max-height:90dvh;
-
   overflow:hidden;
-
   background:var(--tsln-white);
   border-radius:var(--radius-lg);
   box-shadow:var(--shadow-md);
@@ -456,6 +453,25 @@ body.tslnSearchOpen .tslnHeader{
   margin:0;
   color:var(--tsln-blue-dark);
   font-size:1.05rem;
+}
+
+.tslnSearchWidgetError{
+  margin-top:1rem;
+  padding:1rem;
+  border:1px solid var(--tsln-border);
+  border-radius:var(--radius-sm);
+  background:var(--tsln-white);
+  text-align:center;
+}
+
+.tslnSearchWidgetError h3{
+  margin:0 0 .5rem;
+  color:var(--tsln-blue-dark);
+}
+
+.tslnSearchWidgetError p{
+  margin:0 0 1rem;
+  color:var(--tsln-muted);
 }
 
 

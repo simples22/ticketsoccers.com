@@ -16,6 +16,8 @@ type SearchOverlayProps = {
 };
 
 function buildSearchWidgetSrc(keyword = "") {
+  const cleanKeyword = keyword.trim();
+
   const params = new URLSearchParams({
     trs: "481557",
     shmarker: "664478.664478",
@@ -23,37 +25,22 @@ function buildSearchWidgetSrc(keyword = "") {
     title: "Find my next Event",
     title_color: "#ffffff",
     icon_color: "#0045c5",
-    search_text: keyword || "Search by artist, team, event, and more...",
+    search_text:
+      cleanKeyword || "Search by artist, team, event, and more...",
     footer_color: "#ffffff",
     powered_by: "false",
     campaign_id: "72",
     promo_id: "8505",
+    ts: String(Date.now()),
   });
 
   return `https://tpwidg.com/content?${params.toString()}`;
 }
 
-function getWidgetSelector() {
-  return [
-    'script[src*="tpwidg.com"]',
-    'iframe[src*="tpwidg.com"]',
-    '[id*="tpwidg"]',
-    '[class*="tpwidg"]',
-    '[id*="tp-widget"]',
-    '[class*="tp-widget"]',
-  ].join(",");
-}
-
-function removeExternalWidgetNodes(container?: HTMLDivElement | null) {
-  document.querySelectorAll('script[src*="tpwidg.com"]').forEach((node) => {
-    if (container && container.contains(node)) return;
-    node.remove();
-  });
-}
-
 function injectWidget(
   container: HTMLDivElement | null,
-  keyword: string
+  keyword: string,
+  onError: () => void
 ) {
   if (!container) return;
 
@@ -69,6 +56,8 @@ function injectWidget(
   script.charset = "utf-8";
   script.referrerPolicy = "no-referrer-when-downgrade";
 
+  script.onerror = onError;
+
   mount.appendChild(script);
 }
 
@@ -82,6 +71,8 @@ export default function SearchOverlay({
 }: SearchOverlayProps) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [widgetError, setWidgetError] = useState(false);
+
   const searchWidgetRef = useRef<HTMLDivElement | null>(null);
   const scrollYRef = useRef(0);
 
@@ -91,6 +82,8 @@ export default function SearchOverlay({
 
   useEffect(() => {
     if (!open) return;
+
+    setWidgetError(false);
 
     scrollYRef.current = window.scrollY;
 
@@ -105,29 +98,33 @@ export default function SearchOverlay({
     document.body.style.width = "100%";
 
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape") {
+        setOpen(false);
+      }
     };
 
     window.addEventListener("keydown", onKey);
 
-    removeExternalWidgetNodes(searchWidgetRef.current);
-    injectWidget(searchWidgetRef.current, defaultKeyword);
+    const timeout = window.setTimeout(() => {
+      const hasIframe =
+        searchWidgetRef.current?.querySelector("iframe");
 
-    const observer = new MutationObserver(() => {});
+      if (!hasIframe) {
+        setWidgetError(true);
+      }
+    }, 8000);
 
-    observer.observe(document.body, {
-      childList: false,
+    injectWidget(searchWidgetRef.current, defaultKeyword, () => {
+      setWidgetError(true);
     });
 
     return () => {
-      observer.disconnect();
+      window.clearTimeout(timeout);
       window.removeEventListener("keydown", onKey);
 
       if (searchWidgetRef.current) {
         searchWidgetRef.current.innerHTML = "";
       }
-
-      removeExternalWidgetNodes(searchWidgetRef.current);
 
       document.documentElement.classList.remove("tslnNoScroll");
       document.body.classList.remove("tslnNoScroll");
@@ -190,6 +187,30 @@ export default function SearchOverlay({
         <div className="tslnSearchBody">
           <section className="tslnSearchBlock" aria-label="Search form">
             <div ref={searchWidgetRef} className="tslnSearchWidget" />
+
+            {widgetError ? (
+              <div className="tslnSearchWidgetError">
+                <h3>This search could not load.</h3>
+                <p>
+                  Please reload the page or try again in a few moments.
+                </p>
+
+                <button
+                  type="button"
+                  className="tslnBtn"
+                  onClick={() => {
+                    setWidgetError(false);
+                    injectWidget(
+                      searchWidgetRef.current,
+                      defaultKeyword,
+                      () => setWidgetError(true)
+                    );
+                  }}
+                >
+                  Reload Search
+                </button>
+              </div>
+            ) : null}
           </section>
         </div>
       </div>
