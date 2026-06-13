@@ -7,10 +7,10 @@
   display:inline-block;
   margin:0 0 1.25rem;
   color:var(--tsln-blue-dark);
-  font-size:var(--text-xl);
+  font-size:var(--text-xl) !important;
   font-weight:var(--font-weight-title);
   line-height:var(--lh-tight);
-  letter-spacing:var(--letter-tight);
+  letter-spacing:var(--letter-normal);
 }
 
 .uiTitle::after{

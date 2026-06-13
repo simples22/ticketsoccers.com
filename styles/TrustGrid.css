@@ -30,7 +30,7 @@
   color:var(--tsln-blue-dark);
   font-size:var(--text-xl);
   font-weight:var(--font-weight-h1);
-  line-height:var(--lh-normal);
+  line-height:normal;
 }
 
 .tslnTrustCard p{
@@ -43,8 +43,7 @@
 @media(max-width:768px){
 
   .tslnTrustGridSection{
-    padding:2rem 1rem;
-    margin-bottom: 1rem;
+    padding:2rem 0rem;
   }
 
   .tslnTrustGrid{
