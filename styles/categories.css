@@ -56,7 +56,8 @@
 .tslnCategoryScrollBtn{
   width:2.75rem;
   height:2.75rem;
-  display:inline-flex;
+ /* display:inline-flex;*/
+ display: none;
   align-items:center;
   justify-content:center;
   border:1px solid var(--tsln-border);

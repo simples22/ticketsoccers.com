@@ -208,18 +208,41 @@ img{
 
 
 /* =========================================
-   06. HERO PAGE WITH BACKGROUND
+   HERO SEARCH TOP
+========================================= */
+
+.tslnHeroSearchTop{
+  width:min(100%, var(--container-max));
+  margin-inline:auto;
+  padding:2rem var(--container-padding) 1rem;
+  display:flex;
+  justify-content:center;
+}
+
+.tslnHeroSearchTop .tslnSearchBarBtn{
+  width:min(100%, 42rem);
+  max-width:42rem;
+}
+
+/* =========================================
+   HERO PAGE WITH BACKGROUND
 ========================================= */
 
 .tslnHeroPage{
   position:relative;
-  min-height:72vh;
+  width:min(
+    calc(100% - (var(--container-padding) * 2)),
+    var(--container-max)
+  );
+  min-height:52vh;
+  margin-inline:auto;
   display:flex;
   align-items:center;
   justify-content:center;
   overflow:hidden;
   color:var(--tsln-white);
   background:var(--tsln-blue-dark);
+  border-radius:var(--radius-sm);
 }
 
 .tslnHeroBg{
@@ -237,14 +260,22 @@ img{
   inset:0;
   z-index:1;
   background:
-    linear-gradient(90deg, rgba(0,0,0,.76), rgba(0,0,0,.30)),
-    radial-gradient(circle at 20% 20%, rgba(0,69,197,.45), transparent 34%);
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.76),
+      rgba(0,0,0,.30)
+    ),
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(0,69,197,.45),
+      transparent 34%
+    );
 }
 
 .tslnHeroInner{
   position:relative;
   z-index:2;
-  width:min(100%, var(--container-max));
+  width:100%;
   padding:7rem var(--container-padding) 5rem;
   display:flex;
   flex-direction:column;
@@ -255,12 +286,19 @@ img{
 
 .tslnHeroInner h1{
   width:min(100%, 64rem);
-  margin:0 auto 2rem;
+  margin:0 auto 1.25rem;
   color:var(--tsln-white);
   font-size:var(--text-xxl);
   font-weight:var(--font-weight-title);
   line-height:var(--lh-tight);
   letter-spacing:var(--letter-normal);
+}
+
+.tslnHeroInner p{
+  width:min(100%, 44rem);
+  margin:0 auto;
+  color:rgba(255,255,255,.82);
+  line-height:1.7;
 }
 
 /* =========================================
@@ -291,12 +329,12 @@ img{
   width:100%;
   max-width:34rem;
   min-height:3.25rem;
-
   display:flex;
+  margin: 4rem 0;
   align-items:center;
   gap:.85rem;
   padding:0 1.25rem;
-  border:1px solid rgba(255,255,255,.18);
+  border:1px solid var(--tsln-blue);
   border-radius:var(--radius-sm);
   background:var(--tsln-white);
   color:var(--tsln-text);
@@ -313,16 +351,13 @@ img{
 .tslnSearchBarIcon{
   width:2.4rem;
   height:2.4rem;
-
   display:flex;
   align-items:center;
   justify-content:center;
   flex-shrink:0;
-
   border-radius:var(--radius-full);
   background:transparent;
   color:var(--tsln-blue);
-
   font-size:var(--text-lg);
 }
 
@@ -339,13 +374,10 @@ img{
 }
 
 /* =========================================
-   SEARCH OVERLAY
+   SEARCH OVERLAY BASE
 ========================================= */
 
-.tslnNoScroll{
-  overflow:hidden !important;
-}
-
+.tslnNoScroll,
 html.tslnNoScroll,
 body.tslnNoScroll{
   overflow:hidden !important;
@@ -372,11 +404,9 @@ body.tslnSearchOpen .tslnHeader{
 .tslnSearchBackdrop{
   position:absolute;
   inset:0;
-
   border:0;
   background:rgba(0,0,0,.72);
   backdrop-filter:blur(12px);
-
   cursor:pointer;
 }
 
@@ -424,56 +454,43 @@ body.tslnSearchOpen .tslnHeader{
   border-radius:var(--radius-sm);
   background:var(--tsln-bg);
   color:var(--tsln-blue-dark);
-  font-size: var(--text-lg);
+  font-size:var(--text-lg);
   cursor:pointer;
 }
 
+/* =========================================
+   SEARCH IFRAME WIDGET
+========================================= */
+
 .tslnSearchBody{
+  width:100%;
   max-height:calc(90dvh - 5.25rem);
   overflow:auto;
   padding:1rem;
-  display:grid;
-  gap:1rem;
 }
 
 .tslnSearchBlock{
   width:100%;
+  min-height:42rem;
   overflow:hidden;
   border:1px solid var(--tsln-border);
   border-radius:var(--radius-sm);
   background:var(--tsln-white);
 }
 
-.tslnSearchBlockHead{
-  padding:1rem;
-  border-bottom:1px solid var(--tsln-border);
-}
-
-.tslnSearchBlockHead h3{
-  margin:0;
-  color:var(--tsln-blue-dark);
-  font-size:1.05rem;
-}
-
-.tslnSearchWidgetError{
-  margin-top:1rem;
-  padding:1rem;
-  border:1px solid var(--tsln-border);
-  border-radius:var(--radius-sm);
+.tslnSearchIframe{
+  width:100%;
+  height:42rem;
+  display:block;
+  border:0;
   background:var(--tsln-white);
-  text-align:center;
 }
 
-.tslnSearchWidgetError h3{
-  margin:0 0 .5rem;
-  color:var(--tsln-blue-dark);
+/* Old widget containers disabled */
+.tslnSearchWidget,
+.tslnWidgetMount{
+  display:none;
 }
-
-.tslnSearchWidgetError p{
-  margin:0 0 1rem;
-  color:var(--tsln-muted);
-}
-
 
 /* =========================================
    HERO / SEARCH MOBILE
@@ -481,18 +498,32 @@ body.tslnSearchOpen .tslnHeader{
 
 @media(max-width:768px){
 
+  .tslnHeroSearchTop{
+    padding:1rem 1rem .75rem;
+  }
+
+  .tslnHeroSearchTop .tslnSearchBarBtn{
+    width:100%;
+    max-width:none;
+  }
+
   .tslnHeroPage{
-    min-height:78vh;
+    width:calc(100% - 2rem);
+    min-height:70vh;
+    border-radius:var(--radius-sm);
   }
 
   .tslnHeroInner{
-    padding:2rem 1rem 2rem;
+    padding:4rem 1rem 3rem;
   }
 
   .tslnHeroInner h1{
-    width:100%;
-    margin-bottom:1.5rem;
     font-size:var(--text-xl);
+    margin-bottom:1rem;
+  }
+
+  .tslnHeroInner p{
+    font-size:var(--text-sm);
   }
 
   .tslnActions{
@@ -536,9 +567,17 @@ body.tslnSearchOpen .tslnHeader{
   .tslnSearchBody{
     max-height:calc(100dvh - 5.25rem);
     padding:1rem;
+    overflow:auto;
+  }
+
+  .tslnSearchBlock{
+    min-height:36rem;
+  }
+
+  .tslnSearchIframe{
+    height:36rem;
   }
 }
-
 
 
 

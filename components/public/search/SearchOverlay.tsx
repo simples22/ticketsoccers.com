@@ -31,13 +31,12 @@ function buildSearchWidgetSrc(keyword = "") {
     powered_by: "false",
     campaign_id: "72",
     promo_id: "8505",
-    ts: String(Date.now()),
   });
 
   return `https://tpwidg.com/content?${params.toString()}`;
 }
 
-function injectWidget(
+function injectTicketWidget(
   container: HTMLDivElement | null,
   keyword: string,
   onError: () => void
@@ -106,15 +105,15 @@ export default function SearchOverlay({
     window.addEventListener("keydown", onKey);
 
     const timeout = window.setTimeout(() => {
-      const hasIframe =
-        searchWidgetRef.current?.querySelector("iframe");
+      const hasWidget =
+        searchWidgetRef.current?.querySelector(".tns3-widget");
 
-      if (!hasIframe) {
+      if (!hasWidget) {
         setWidgetError(true);
       }
-    }, 8000);
+    }, 7000);
 
-    injectWidget(searchWidgetRef.current, defaultKeyword, () => {
+    injectTicketWidget(searchWidgetRef.current, defaultKeyword, () => {
       setWidgetError(true);
     });
 
@@ -186,13 +185,17 @@ export default function SearchOverlay({
 
         <div className="tslnSearchBody">
           <section className="tslnSearchBlock" aria-label="Search form">
-            <div ref={searchWidgetRef} className="tslnSearchWidget" />
+            <div
+              ref={searchWidgetRef}
+              className="tslnSearchWidget"
+            />
 
             {widgetError ? (
               <div className="tslnSearchWidgetError">
                 <h3>This search could not load.</h3>
+
                 <p>
-                  Please reload the page or try again in a few moments.
+                  Please reload the search or try again in a few moments.
                 </p>
 
                 <button
@@ -200,7 +203,7 @@ export default function SearchOverlay({
                   className="tslnBtn"
                   onClick={() => {
                     setWidgetError(false);
-                    injectWidget(
+                    injectTicketWidget(
                       searchWidgetRef.current,
                       defaultKeyword,
                       () => setWidgetError(true)

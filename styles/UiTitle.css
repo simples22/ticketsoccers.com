@@ -7,7 +7,7 @@
   display:inline-block;
   margin:0 0 1.25rem;
   color:var(--tsln-blue-dark);
-  font-size:var(--text-xl) !important;
+  font-size:1.35rem !important;
   font-weight:var(--font-weight-title);
   line-height:var(--lh-tight);
   letter-spacing:var(--letter-normal);
@@ -17,6 +17,7 @@
   content:"";
   position:absolute;
   left:0;
+  display: none;
   padding: .10rem;
   bottom:-.5rem;
   width:4rem;

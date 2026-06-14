@@ -1,4 +1,3 @@
-import Link from "next/link";
 import PBImage from "@/components/ui/PBImage";
 import SearchOverlay from "@/components/public/search/SearchOverlay";
 
@@ -12,37 +11,41 @@ export default function HeroPage({
   title = "Live Events, Sports and Entertainment Tickets",
   subtitle = "",
   image = "/hero/coming-hero.jpg",
-}: HeroPageProps){
-
+}: HeroPageProps) {
   return (
-    <section className="tslnHeroPage">
-      <div className="tslnHeroBg">
-        <PBImage
-          src={image}
-          alt=""
-          fill
-          priority
-          className="tslnHeroImg"
-          sizes="100vw"
-        />
+    <>
+      <div className="tslnHeroSearchTop">
+        <SearchOverlay />
       </div>
-      <div className="tslnHeroOverlay" />
-      <div className="tslnHeroInner">
-        
 
-        <h1>{title}</h1>
-        <p>{subtitle}</p>
-
-        <div className="tslnActions">
-            <SearchOverlay />
-          <a
-            href="#categories"
-            className="tslnBtn"
-          >
-            View All Categories
-          </a>
+      <section className="tslnHeroPage">
+        <div className="tslnHeroBg">
+          <PBImage
+            src={image}
+            alt=""
+            fill
+            priority
+            className="tslnHeroImg"
+            sizes="100vw"
+          />
         </div>
-      </div>
-    </section>
+
+        <div className="tslnHeroOverlay" />
+
+        <div className="tslnHeroInner">
+          <h1>{title}</h1>
+
+          {subtitle ? (
+            <p>{subtitle}</p>
+          ) : null}
+
+          <div className="tslnActions">
+            <a href="#categories" className="tslnBtn">
+              View All Categories
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
