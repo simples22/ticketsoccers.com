@@ -220,7 +220,8 @@ body.tslnMenuOpen .tslnHeaderInner{
 }
 
 .tslnSearchIconBtn:hover{
-  background: var(--tsln-text);
+  background: var(--tsln-white);
+  color: var(--tsln-blue);
   border-bottom:2px solid var(--tsln-blue);
 }
 

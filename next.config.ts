@@ -23,22 +23,23 @@ const securityHeaders = [
       "camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=(), magnetometer=(), gyroscope=(), accelerometer=()",
   },
   {
-  key: "Content-Security-Policy",
-  value: [
-    "default-src 'self'",
-   "style-src 'self' 'unsafe-inline' https://tpwidg.com https://*.tpwidg.com https://s3.amazonaws.com https://use.fontawesome.com",
-  "font-src 'self' data: https://use.fontawesome.com https://ka-f.fontawesome.com",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://tpwidg.com https://*.tpwidg.com https://s3.amazonaws.com https://tpo.gg https://*.tpo.gg",
-  "img-src 'self' data: blob: https: http:",
-  "connect-src 'self' https: wss:","frame-src 'self' https://tpwidg.com https://*.tpwidg.com https://ticketnetwork.com https://*.ticketnetwork.com",
-    "worker-src 'self' blob:",
-    "object-src 'none'",
-    "base-uri 'self'",
-    "form-action 'self' https:",
-    "frame-ancestors 'self'",
-    "upgrade-insecure-requests",
-  ].join("; "),
-},
+    key: "Content-Security-Policy",
+    value: [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://tpwidg.com https://*.tpwidg.com https://s3.amazonaws.com https://tpo.gg https://*.tpo.gg",
+      "style-src 'self' 'unsafe-inline' https://tpwidg.com https://*.tpwidg.com https://s3.amazonaws.com https://use.fontawesome.com",
+      "img-src 'self' data: blob: https: http:",
+      "font-src 'self' data: https://use.fontawesome.com https://ka-f.fontawesome.com",
+      "connect-src 'self' https: wss:",
+      "frame-src 'self' https://tpwidg.com https://*.tpwidg.com https://ticketnetwork.com https://*.ticketnetwork.com",
+      "worker-src 'self' blob:",
+      "object-src 'none'",
+      "base-uri 'self'",
+      "form-action 'self' https:",
+      "frame-ancestors 'self'",
+      "upgrade-insecure-requests",
+    ].join("; "),
+  },
 ];
 
 const nextConfig: NextConfig = {
@@ -59,6 +60,14 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "**.ticketnetwork.com",
+      },
+      {
+        protocol: "https",
+        hostname: "s3.amazonaws.com",
+      },
+      {
+        protocol: "https",
+        hostname: "use.fontawesome.com",
       },
     ],
   },

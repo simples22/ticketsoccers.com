@@ -214,14 +214,14 @@ img{
 .tslnHeroSearchTop{
   width:min(100%, var(--container-max));
   margin-inline:auto;
-  padding:2rem var(--container-padding) 1rem;
+  padding:1rem var(--container-padding) 1rem;
   display:flex;
   justify-content:center;
 }
 
 .tslnHeroSearchTop .tslnSearchBarBtn{
   width:min(100%, 42rem);
-  max-width:42rem;
+  max-width:62rem;
 }
 
 /* =========================================
@@ -234,7 +234,7 @@ img{
     calc(100% - (var(--container-padding) * 2)),
     var(--container-max)
   );
-  min-height:52vh;
+  min-height:50vh;
   margin-inline:auto;
   display:flex;
   align-items:center;
@@ -327,7 +327,7 @@ img{
 .tslnSearchBarBtn{
   flex:1;
   width:100%;
-  max-width:34rem;
+  max-width:54rem;
   min-height:3.25rem;
   display:flex;
   margin: 4rem 0;
@@ -345,7 +345,7 @@ img{
 
 .tslnSearchBarBtn:hover{
   transform:translateY(-2px);
-  box-shadow:var(--shadow-lg);
+  box-shadow:var(--shadow-sm);
 }
 
 .tslnSearchBarIcon{
@@ -405,7 +405,7 @@ body.tslnSearchOpen .tslnHeader{
   position:absolute;
   inset:0;
   border:0;
-  background:rgba(0,0,0,.72);
+  background:var(--tsln-white);
   backdrop-filter:blur(12px);
   cursor:pointer;
 }
@@ -413,11 +413,11 @@ body.tslnSearchOpen .tslnHeader{
 .tslnSearchModal{
   position:relative;
   z-index:2;
-  width:min(100%, 58rem);
-  max-height:90dvh;
+  width:min(100%, 50rem);
+  max-height:80dvh;
   overflow:hidden;
   background:var(--tsln-white);
-  border-radius:var(--radius-lg);
+  border-radius:var(--radius-sm);
   box-shadow:var(--shadow-md);
 }
 
@@ -509,12 +509,12 @@ body.tslnSearchOpen .tslnHeader{
 
   .tslnHeroPage{
     width:calc(100% - 2rem);
-    min-height:70vh;
+    min-height:60vh;
     border-radius:var(--radius-sm);
   }
 
   .tslnHeroInner{
-    padding:4rem 1rem 3rem;
+    padding:3rem 1rem 2rem;
   }
 
   .tslnHeroInner h1{
@@ -559,8 +559,8 @@ body.tslnSearchOpen .tslnHeader{
 
   .tslnSearchModal{
     width:100%;
-    min-height:100dvh;
-    max-height:100dvh;
+    min-height:50dvh;
+    max-height:50dvh;
     border-radius:0;
   }
 
@@ -571,11 +571,11 @@ body.tslnSearchOpen .tslnHeader{
   }
 
   .tslnSearchBlock{
-    min-height:36rem;
+    min-height:26rem;
   }
 
   .tslnSearchIframe{
-    height:36rem;
+    height:26rem;
   }
 }
 
