@@ -1,49 +1,67 @@
+"use client";
+
+import Link from "next/link";
 import PBImage from "@/components/ui/PBImage";
 import SearchOverlay from "@/components/public/search/SearchOverlay";
+import SearchCategoryGrid from "./search/SearchCategoryGrid";
 
-type HeroPageProps = {
-  title?: string;
-  subtitle?: string;
-  image?: string;
-};
+const slides = [
+  {
+    title: "Greatest Moments On MLS Live",
+    image: "/hero/mls-hero.jpg",
+    href: "/sport/mls",
+  },
+  {
+    title: "MLB Season Live",
+    image: "/hero/mlb-hero.jpg",
+    href: "/sport/mlb",
+  },
+  {
+    title: "NBA Playoffs Live",
+    image: "/hero/nba-hero.jpg",
+    href: "/sport/nba",
+  },
+  {
+    title: "NCAA Sports On Live",
+    image: "/hero/ncaa-hero.jpg",
+    href: "/sport/ncaa",
+  },
+];
 
-export default function HeroPage({
-  title = "Live Events, Sports and Entertainment Tickets",
-  subtitle = "",
-  image = "/hero/coming-hero.jpg",
-}: HeroPageProps) {
+export default function HeroPage() {
   return (
     <>
       <div className="tslnHeroSearchTop">
         <SearchOverlay />
       </div>
 
-      <section className="tslnHeroPage">
-        <div className="tslnHeroBg">
-          <PBImage
-            src={image}
-            alt=""
-            fill
-            priority
-            className="tslnHeroImg"
-            sizes="100vw"
-          />
-        </div>
+      <SearchCategoryGrid />
 
-        <div className="tslnHeroOverlay" />
+      <section className="tslnHeroCarousel">
+        <div className="tslnHeroCarouselTrack">
+          {slides.map((slide) => (
+            <Link
+              key={slide.title}
+              href={slide.href}
+              className="tslnHeroCarouselCard"
+            >
+              <PBImage
+                src={slide.image}
+                alt={slide.title}
+                fill
+                priority={slide.title.includes("MLS")}
+                className="tslnHeroCarouselImg"
+                sizes="(max-width:768px) 80vw, 48vw"
+              />
 
-        <div className="tslnHeroInner">
-          <h1>{title}</h1>
+              <div className="tslnHeroCarouselOverlay" />
 
-          {subtitle ? (
-            <p>{subtitle}</p>
-          ) : null}
-
-          <div className="tslnActions">
-            <a href="#categories" className="tslnBtn">
-              View All Categories
-            </a>
-          </div>
+              <div className="tslnHeroCarouselContent">
+                <h1>{slide.title}</h1>
+                <span>Browse Events</span>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
     </>

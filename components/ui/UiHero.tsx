@@ -116,8 +116,9 @@ export default function UiHero({
 
         {children ? <div className="uiHeroActions">{children}</div> : null}
       </div>
+      <HeaderScrollSeparator />
     </section>
-<HeaderScrollSeparator />
+        
     </>
   );
 }

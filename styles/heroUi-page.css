@@ -84,7 +84,9 @@
 .uiHero{
   position:relative;
   width:100%;
+  top: 0;
   overflow:hidden;
+  z-index: 10;
   border-top: 3px solid var(--tsln-blue);
   background:var(--tsln-blue-dark);
   box-shadow: var(--shadow-md);
@@ -96,7 +98,7 @@
 }
 
 .uiHeroPlain{
-  min-height:20rem;
+  min-height:25rem;
   color:var(--tsln-white);
 }
 
@@ -407,7 +409,7 @@
   }
 
   .uiHeroPlain{
-    min-height:16rem;
+    min-height:26rem;
   }
 
   .uiHeroInner{

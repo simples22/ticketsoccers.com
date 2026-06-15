@@ -17,7 +17,8 @@ export default function Home() {
   return (
     <>
       <HeroPage />
-        <HeaderScrollSeparator />
+        
+        {/*<HeaderScrollSeparator />*/}
 
           <main className="tslnComingPage">
              <CategorySection />
@@ -44,14 +45,13 @@ export default function Home() {
               </div>
             </div>
           </section>
-            <Publicity />
-
-              <ChronoPageBtn
-                  image="/images/hero/stadium.jpg"
-                  />
-                <SponsoredGrid />
-            <TrustGrid />
-      <HomeFaqs />
+             <Publicity />
+                   <SponsoredGrid />
+                 <TrustGrid />
+              <HomeFaqs />
+            <ChronoPageBtn
+              image="/images/hero/stadium.jpg"
+          />
     </main>
     </>
   );

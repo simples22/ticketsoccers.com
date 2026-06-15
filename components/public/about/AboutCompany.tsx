@@ -49,48 +49,6 @@ export default function AboutCompany() {
             </p>
             </section>
 
-            <section className="tslnAboutSection">
-            <UiTitle> Our Mission</UiTitle>
-
-            <p>
-                Our mission is to help people discover events that match their interests
-                while providing clear access to sports, concerts, festivals, family events,
-                theatre performances, comedy shows, and live entertainment opportunities.
-            </p>
-            </section>
-
-            <section className="tslnAboutSection">
-            <UiTitle>Innovation & Growth</UiTitle>
-
-            <p>
-                Ticketsoccers continuously invests in platform improvements, search
-                experiences, category organization, event accessibility, and audience
-                engagement tools. Growth remains a core objective as the company expands
-                its reach and develops new opportunities for visitors and partners.
-            </p>
-            </section>
-
-            <section className="tslnAboutSection">
-            <UiTitle>Company Support</UiTitle>
-
-            <p>
-                The company is supported through strategic partnerships, technology
-                providers, marketing initiatives, and ongoing development efforts that help
-                strengthen platform reliability, visibility, and user experience.
-            </p>
-            </section>
-
-            <section className="tslnAboutSection">
-            <UiTitle>Looking Ahead</UiTitle>
-
-            <p>
-                Looking ahead, Ticketsoccers intends to broaden its event coverage,
-                strengthen industry relationships, and continue developing resources that
-                help visitors discover experiences across sports, entertainment, culture,
-                and live events worldwide.
-            </p>
-            </section>
-
     </article>
   );
 }

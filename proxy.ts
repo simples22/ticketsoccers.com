@@ -28,10 +28,34 @@ const suspiciousQueryPatterns = [
   "drop table",
 ];
 
+const allowedWidgetPaths = [
+  "tpwidg",
+  "ticketnetwork",
+  "tns3",
+  "powered_by",
+  "promo_id=8505",
+  "shmarker=664478",
+  "campaign_id=72",
+];
+
+function isWidgetRequest(pathname: string, search: string) {
+  const combined = `${pathname}?${search}`.toLowerCase();
+
+  return allowedWidgetPaths.some((item) => combined.includes(item));
+}
+
 export function proxy(request: NextRequest) {
   const url = request.nextUrl;
   const pathname = url.pathname.toLowerCase();
   const search = url.search.toLowerCase();
+
+  if (isWidgetRequest(pathname, search)) {
+    const response = NextResponse.next();
+
+    response.headers.set("X-Request-Protection", "ticketsoccers-widget-pass");
+
+    return response;
+  }
 
   const isBlockedPath = blockedPatterns.some((pattern) =>
     pathname.includes(pattern)
@@ -57,6 +81,6 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|manifest.webmanifest|google5a23f596896594f6.html).*)",
+    "/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|manifest.webmanifest|google5a23f596896594f6.html|sw.js).*)",
   ],
 };

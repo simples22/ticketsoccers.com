@@ -2,10 +2,12 @@
    TRUST GRID
 ========================================= */
 
-.tslnTrustGridSection{
-  width:100%;
-  padding:3rem var(--container-padding);
-  background: #73ff0000;
+.tslnTrustGridSection {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 3rem var(--container-padding);
+  background: var(--tsln-white);
   margin-bottom: 0;
 }
 

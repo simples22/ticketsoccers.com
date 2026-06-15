@@ -4,6 +4,8 @@
 
 .tslnFooter{
   width:100%;
+  z-index: 4;
+  top: 0;
   margin-top:auto;
   background:var(--tsln-blue-dark);
   color:var(--tsln-white);
@@ -61,7 +63,7 @@
   width:max-content;
   color:var(--tsln-white);
   font-size: var(--text-small);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-title);
   transition:var(--transition-fast);
 }
 

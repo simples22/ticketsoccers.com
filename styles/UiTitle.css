@@ -8,7 +8,7 @@
   margin:0 0 1.25rem;
   color:var(--tsln-blue-dark);
   font-size:1.35rem !important;
-  font-weight:var(--font-weight-title);
+  font-weight:var(--font-weight-h1);
   line-height:var(--lh-tight);
   letter-spacing:var(--letter-normal);
 }

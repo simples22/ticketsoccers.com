@@ -1,10 +1,13 @@
 ﻿"use client";
 
-import type { ReactNode } from "react";
+import type { FormEvent, ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMagnifyingGlass,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 
 type SearchOverlayProps = {
   className?: string;
@@ -15,49 +18,16 @@ type SearchOverlayProps = {
   defaultKeyword?: string;
 };
 
-function buildSearchWidgetSrc(keyword = "") {
-  const cleanKeyword = keyword.trim();
+function buildTicketNetworkUrl(query: string) {
+  const cleanQuery = query.trim();
 
-  const params = new URLSearchParams({
-    trs: "481557",
-    shmarker: "664478.664478",
-    bg_color: "#0045c5",
-    title: "Find my next Event",
-    title_color: "#ffffff",
-    icon_color: "#0045c5",
-    search_text:
-      cleanKeyword || "Search by artist, team, event, and more...",
-    footer_color: "#ffffff",
-    powered_by: "false",
-    campaign_id: "72",
-    promo_id: "8505",
-  });
+  const ticketNetworkUrl = `https://www.ticketnetwork.com/search?q=${encodeURIComponent(
+    cleanQuery
+  )}&utm_source=CJ+Affiliate&utm_medium=Widget`;
 
-  return `https://tpwidg.com/content?${params.toString()}`;
-}
-
-function injectTicketWidget(
-  container: HTMLDivElement | null,
-  keyword: string,
-  onError: () => void
-) {
-  if (!container) return;
-
-  container.innerHTML = "";
-
-  const mount = document.createElement("div");
-  mount.className = "tslnWidgetMount";
-  container.appendChild(mount);
-
-  const script = document.createElement("script");
-  script.src = buildSearchWidgetSrc(keyword);
-  script.async = true;
-  script.charset = "utf-8";
-  script.referrerPolicy = "no-referrer-when-downgrade";
-
-  script.onerror = onError;
-
-  mount.appendChild(script);
+  return `https://www.tkqlhce.com/click-8873531-10796449?sid=72bd3ba93dc54c89a93365ea2-664478&url=${encodeURIComponent(
+    ticketNetworkUrl
+  )}`;
 }
 
 export default function SearchOverlay({
@@ -69,10 +39,8 @@ export default function SearchOverlay({
   defaultKeyword = "",
 }: SearchOverlayProps) {
   const [open, setOpen] = useState(false);
+  const [searchValue, setSearchValue] = useState(defaultKeyword);
   const [mounted, setMounted] = useState(false);
-  const [widgetError, setWidgetError] = useState(false);
-
-  const searchWidgetRef = useRef<HTMLDivElement | null>(null);
   const scrollYRef = useRef(0);
 
   useEffect(() => {
@@ -80,9 +48,11 @@ export default function SearchOverlay({
   }, []);
 
   useEffect(() => {
-    if (!open) return;
+    setSearchValue(defaultKeyword);
+  }, [defaultKeyword]);
 
-    setWidgetError(false);
+  useEffect(() => {
+    if (!open) return;
 
     scrollYRef.current = window.scrollY;
 
@@ -97,33 +67,13 @@ export default function SearchOverlay({
     document.body.style.width = "100%";
 
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setOpen(false);
-      }
+      if (event.key === "Escape") setOpen(false);
     };
 
     window.addEventListener("keydown", onKey);
 
-    const timeout = window.setTimeout(() => {
-      const hasWidget =
-        searchWidgetRef.current?.querySelector(".tns3-widget");
-
-      if (!hasWidget) {
-        setWidgetError(true);
-      }
-    }, 7000);
-
-    injectTicketWidget(searchWidgetRef.current, defaultKeyword, () => {
-      setWidgetError(true);
-    });
-
     return () => {
-      window.clearTimeout(timeout);
       window.removeEventListener("keydown", onKey);
-
-      if (searchWidgetRef.current) {
-        searchWidgetRef.current.innerHTML = "";
-      }
 
       document.documentElement.classList.remove("tslnNoScroll");
       document.body.classList.remove("tslnNoScroll");
@@ -137,7 +87,17 @@ export default function SearchOverlay({
 
       window.scrollTo(0, scrollYRef.current);
     };
-  }, [open, defaultKeyword]);
+  }, [open]);
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const cleanQuery = searchValue.trim();
+
+    if (!cleanQuery) return;
+
+    window.open(buildTicketNetworkUrl(cleanQuery), "_blank", "noopener,noreferrer");
+  }
 
   const handleOpen = () => {
     onOpen?.();
@@ -177,43 +137,35 @@ export default function SearchOverlay({
             type="button"
             className="tslnSearchClose"
             onClick={() => setOpen(false)}
-            aria-label="Close search"
+            aria-label="Close"
           >
-            ×
+            <FontAwesomeIcon icon={faXmark} />
           </button>
         </div>
 
         <div className="tslnSearchBody">
           <section className="tslnSearchBlock" aria-label="Search form">
-            <div
-              ref={searchWidgetRef}
-              className="tslnSearchWidget"
-            />
+            <form className="tslnTNWidget" onSubmit={handleSubmit}>
+              <h3>Find my next Event</h3>
 
-            {widgetError ? (
-              <div className="tslnSearchWidgetError">
-                <h3>This search could not load.</h3>
+              <div className="tslnTNWidgetSearch">
+                <input
+                  type="text"
+                  value={searchValue}
+                  onChange={(event) => setSearchValue(event.target.value)}
+                  placeholder="Search by artist, team, event, and more..."
+                  autoFocus
+                />
 
-                <p>
-                  Please reload the search or try again in a few moments.
-                </p>
-
-                <button
-                  type="button"
-                  className="tslnBtn"
-                  onClick={() => {
-                    setWidgetError(false);
-                    injectTicketWidget(
-                      searchWidgetRef.current,
-                      defaultKeyword,
-                      () => setWidgetError(true)
-                    );
-                  }}
-                >
-                  Reload Search
+                <button type="submit" aria-label="Search TicketNetwork">
+                  <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </button>
               </div>
-            ) : null}
+
+              <p className="tslnTNWidgetPowered">
+                Powered by <strong>TicketNetwork</strong>
+              </p>
+            </form>
           </section>
         </div>
       </div>
@@ -242,9 +194,7 @@ export default function SearchOverlay({
             {icon ?? <FontAwesomeIcon icon={faMagnifyingGlass} />}
           </span>
 
-          <span className="tslnSearchBarText">
-            {label}
-          </span>
+          <span className="tslnSearchBarText">{label}</span>
         </button>
       )}
 
