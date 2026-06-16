@@ -277,8 +277,8 @@ img{
   background:
     linear-gradient(
       90deg,
-      rgba(0,0,0,.78),
-      rgba(0,0,0,.20)
+      rgba(0, 0, 0, 0.26),
+      rgba(0, 0, 0, 0.288)
     );
 }
 
@@ -298,17 +298,24 @@ img{
   line-height:1.05;
 }
 
-.tslnHeroCarouselContent span{
-  display:inline-flex;
-  min-height:2.75rem;
-  align-items:center;
-  padding:0 1rem;
-  border-radius:var(--radius-sm);
-  background:var(--tsln-white);
-  color:var(--tsln-blue-dark);
-  font-weight:var(--font-weight-title);
+
+.tslnHeroCarouselCard{
+  cursor:default;
 }
 
+.tslnHeroCarouselBadge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:2.5rem;
+  padding:0 1rem;
+  border-radius:var(--radius-sm);
+  background:rgba(0, 17, 255, 0.445);
+  backdrop-filter:blur(10px);
+  color:var(--tsln-white);
+  font-size:var(--text-xs);
+  font-weight:var(--font-weight-title);
+}
 
 
 
@@ -351,7 +358,7 @@ img{
   padding:0 1rem;
   border:1px solid var(--tsln-text);
   border-radius:var(--radius-sm);
-  background:var(--tsln-white);
+  background:var(--tsln-border);
   color:var(--tsln-text);
   box-shadow:var(--shadow-sm);
   cursor:pointer;
@@ -495,6 +502,7 @@ img{
   display:flex;
   align-items:center;
   justify-content:space-between;
+  border-top:1px solid var(--tsln-border);
   gap:2rem;
 }
 
@@ -554,14 +562,16 @@ img{
 }
 
 
+
+
 /* =========================================
    09. CHRONO PAGE BUTTON
 ========================================= */
 
 .tslnChronoWrapper{
   width:100%;
-  padding-inline:var(--container-padding);
-  margin-block:4rem;
+  padding-inline:0;
+  margin-block:0rem;
 }
 
 .tslnChronoPageBtn{
@@ -571,7 +581,7 @@ img{
   max-width:var(--container-max);
   min-height:22rem;
   margin-inline:auto;
-  border-radius:var(--radius-sm);
+  border-radius:0 ;
   box-shadow:var(--shadow-md);
   background:var(--tsln-blue-dark);
 }
@@ -959,7 +969,7 @@ img{
   /* Suggested */
 
   .tslnSuggestedPage{
-    padding-block:1rem;
+    padding-block:0rem;
   }
 
   .tslnSuggestedAction{
@@ -976,7 +986,7 @@ img{
     flex-direction:column;
     align-items:flex-start;
     gap:.75rem;
-    padding-top:1.5rem;
+    padding-top:1rem;
     border-top:1px solid var(--tsln-border);
   }
 
@@ -997,14 +1007,14 @@ img{
 
   .tslnChronoWrapper{
     width:100%;
-    padding:0 1rem;
+    padding:0rem;
   }
 
   .tslnChronoPageBtn{
     width:100%;
     min-height:18rem;
     padding:0;
-    border-radius:var(--radius-sm);
+    border-radius:0;
   }
 
   .tslnChronoPageBtnContent{
@@ -1100,6 +1110,7 @@ img{
   width:min(100%, var(--container-max));
   margin-inline:auto;
   padding:5rem var(--container-padding);
+  
 }
 
 .tslnCountdown p{

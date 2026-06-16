@@ -7,7 +7,7 @@ type ChronoPageBtnProps = {
 };
 
 export default function ChronoPageBtn({
-  image = "/images/hero/launch-countdown.jpg",
+  image = "/hero/launch-countdownn.jpg",
   alt = "Ticketsoccers launch countdown",
 }: ChronoPageBtnProps) {
   return (

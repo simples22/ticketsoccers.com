@@ -76,7 +76,7 @@
 .tslnLegalSectionContent p{
   margin:0;
   color:var(--tsln-blue-dark);
-  font-weight: var(--font-weight-legal-medium);
+  font-weight: var(--font-weight-medium);
   font-size:var(--text-xs);
   margin-bottom: 1rem;
 }

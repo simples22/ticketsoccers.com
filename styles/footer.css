@@ -29,10 +29,11 @@
 
 .tslnFooterLogo{
   width:max-content;
-  color:var(--tsln-white);
+  color:var(--tsln-white) !important;
   font-size:var(--text-xl);
   font-weight:var(--font-weight-title);
   letter-spacing:-.03em;
+  font-style: italic;
   margin-bottom: 2rem;
 }
 

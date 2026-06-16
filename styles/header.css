@@ -59,15 +59,15 @@
 }
 
 .tslnBrand:hover{
-  color:var(--tsln-text);
-  opacity:.90;
+  color:var(--tsln-muted);
+  opacity:.99;
 }
 
 .tslnBrandText {
   font-size:var(--text-xl);
-  font-weight:var(--font-weight-h1) !important;
+  font-weight:var(--font-weight-title);
   letter-spacing:var(--letter-tight);
-  font-style:italic;
+  font-style:none;
   line-height:1;
 }
 

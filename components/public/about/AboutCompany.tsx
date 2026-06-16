@@ -30,25 +30,6 @@ export default function AboutCompany() {
                 around the world.
             </p>
             </section>
-
-            <section className="tslnAboutSection">
-            <UiTitle>Company Creation</UiTitle>
-
-            <p>
-                Founded by Clervens Pierre, Ticketsoccers was launched in September 2025 as
-                a long-term digital project centered on event discovery, audience access,
-                entertainment visibility, and category-based exploration. The company was
-                built around the belief that finding events should be organized, accessible,
-                and informative for every visitor.
-            </p>
-
-            <p>
-                From its earliest stages, the platform was designed with growth in mind,
-                allowing new event categories, partnerships, resources, and visitor-focused
-                services to be added over time.
-            </p>
-            </section>
-
     </article>
   );
 }

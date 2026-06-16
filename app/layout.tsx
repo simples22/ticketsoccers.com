@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://ticketsoccers.com"),
 
   title: {
-    default: "Ticketsoccers | Coming Soon Platform",
+    default: "Ticketsoccers : Coming Soon Platform",
     template: "%s | Ticketsoccers",
   },
 

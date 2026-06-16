@@ -29,14 +29,14 @@
 
 .tslnAboutOverviewInner{
   position:relative;
+  padding-bottom: 5rem;
 }
 
 .tslnAboutOverview{
 position:relative;
   width:100%;
-  margin-top: 10rem;
-  padding: 2rem 0;
-  padding:0rem var(--container-padding);
+  margin-top: 0rem;
+  padding:2rem var(--container-padding);
   background: var(--tsln-white);
   z-index: 4;
 }
@@ -160,6 +160,7 @@ position:relative;
 
 .tslnFounderBody p{
   margin:0;
+  display: none;
   color:var(--tsln-muted);
   font-size:var(--text-sm);
 }
@@ -176,6 +177,7 @@ position:relative;
 
 .tslnAboutRegions{
     position:relative;
+    display: none;
   width:100%;
   z-index: 4;
   background: var(--tsln-white);
@@ -314,7 +316,7 @@ position:relative;
   z-index: 1;
   width: min(100%, var(--container-max));
   margin-inline: auto;
-  padding: 6rem var(--container-padding);
+  padding: 10rem var(--container-padding);
     display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: stretch;
@@ -324,7 +326,7 @@ position:relative;
 
 .aboutMissionCard {
   flex: 1;
-  padding: 3em 1rem;
+  padding: 5em;
   border-radius: var(--radius-sm);
   background: var(--tsln-border);
 }

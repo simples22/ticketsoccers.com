@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import PBImage from "@/components/ui/PBImage";
 import SearchOverlay from "@/components/public/search/SearchOverlay";
 import SearchCategoryGrid from "./search/SearchCategoryGrid";
@@ -9,22 +8,18 @@ const slides = [
   {
     title: "Greatest Moments On MLS Live",
     image: "/hero/mls-hero.jpg",
-    href: "/sport/mls",
   },
   {
     title: "MLB Season Live",
     image: "/hero/mlb-hero.jpg",
-    href: "/sport/mlb",
   },
   {
     title: "NBA Playoffs Live",
     image: "/hero/nba-hero.jpg",
-    href: "/sport/nba",
   },
   {
     title: "NCAA Sports On Live",
     image: "/hero/ncaa-hero.jpg",
-    href: "/sport/ncaa",
   },
 ];
 
@@ -40,9 +35,8 @@ export default function HeroPage() {
       <section className="tslnHeroCarousel">
         <div className="tslnHeroCarouselTrack">
           {slides.map((slide) => (
-            <Link
+            <article
               key={slide.title}
-              href={slide.href}
               className="tslnHeroCarouselCard"
             >
               <PBImage
@@ -58,9 +52,12 @@ export default function HeroPage() {
 
               <div className="tslnHeroCarouselContent">
                 <h1>{slide.title}</h1>
-                <span>Browse Events</span>
+
+                <span className="tslnHeroCarouselBadge">
+                  Live Events
+                </span>
               </div>
-            </Link>
+            </article>
           ))}
         </div>
       </section>

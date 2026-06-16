@@ -32,7 +32,7 @@
 .tslnCategoryRail{
   width:min(100%, var(--container-max));
   margin-inline:auto;
-  padding:4rem var(--container-padding);
+  padding:3rem var(--container-padding);
 }
 
 .tslnCategoryHead{
@@ -45,6 +45,7 @@
 
 .tslnSectionHeader p{
   margin-top:1.5rem;
+  display: none;
 }
 
 .tslnCategoryControls{

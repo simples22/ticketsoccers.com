@@ -60,6 +60,10 @@ export default function Footer() {
           <Link href="/terms-of-use">
             Terms of Use
           </Link>
+
+          <Link href="/terms-of-use">
+            Terms of Use
+          </Link>
         </div>
 
         {/* Connect */}

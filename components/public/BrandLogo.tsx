@@ -16,7 +16,7 @@ export default function BrandLogo({
       aria-label="Ticketsoccers Home"
     >
       <span className="tslnBrandText">
-        ticketsoccers
+        Ticketsoccers
       </span>
 
       <sup className="tslnBrandTm">

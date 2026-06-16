@@ -11,7 +11,7 @@ export default function AboutPage() {
   return (
     <main>
       <UiHero
-          title="Why to know About Us"
+          title="What's About Us"
          />
       <AboutOverview />
         <AboutMissionCards />
@@ -26,7 +26,7 @@ export default function AboutPage() {
                 className="afterOverview"
               />
               <TrustGrid />
-      <AboutNext />
+      {/*<AboutNext />*/}
     </main>
   );
 }
