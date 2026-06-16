@@ -30,7 +30,6 @@
   z-index:20;
   background:var(--tsln-white);
   backdrop-filter:blur(14px);
-  border-bottom: 1px solid var(--tsln-border);
 }
 
 .tslnHeaderInner{

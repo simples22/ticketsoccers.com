@@ -40,7 +40,7 @@ export default function SearchCategoryCarousel() {
       <div className="tslnSearchCategoryInner">
 
         <UiTitle className="tslntitlecategorylinks">
-          Browse Popular Event Categories
+        The most Popular suggested
         </UiTitle>
 
         <div className="tslnSearchCategoryCarousel">
