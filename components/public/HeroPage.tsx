@@ -5,6 +5,10 @@ import SearchOverlay from "@/components/public/search/SearchOverlay";
 import SearchCategoryGrid from "./search/SearchCategoryGrid";
 
 const slides = [
+   {
+    title: "NBA Playoffs Live",
+    image: "/hero/nba-hero.jpg",
+  },
   {
     title: "Greatest Moments On MLS Live",
     image: "/hero/mls-hero.jpg",
@@ -12,10 +16,6 @@ const slides = [
   {
     title: "MLB Season Live",
     image: "/hero/mlb-hero.jpg",
-  },
-  {
-    title: "NBA Playoffs Live",
-    image: "/hero/nba-hero.jpg",
   },
   {
     title: "NCAA Sports On Live",

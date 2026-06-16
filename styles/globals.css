@@ -49,8 +49,8 @@
   --radius-xl:1.5rem;
   --radius-full:999px;
 
-  --shadow-sm:0 6px 18px rgba(15,23,42,.06);
-  --shadow-md:0 22px 52px rgba(15, 23, 42, 0.205);
+  --shadow-sm:0 21px 48px rgba(163, 167, 177, 0.712);
+  --shadow-md:4 21px 52px rgba(15, 23, 42, 0.514);
 
   --transition-fast:.15s ease;
   --transition-normal:.25s ease;
@@ -219,7 +219,7 @@ img{
 
 .tslnHeroSearchTop .tslnSearchBarBtn{
   width:min(100%, 32rem);
-  max-width:62rem;
+  max-width:50rem;
 }
 
 
@@ -252,6 +252,7 @@ img{
 
 .tslnHeroCarouselTrack::-webkit-scrollbar{
   display:none;
+  backgtoung:var (--tsln-white);
 }
 
 .tslnHeroCarouselCard{
@@ -261,6 +262,7 @@ img{
   overflow:hidden;
   border-radius:var(--radius-sm);
   background:var(--tsln-blue-dark);
+  box-shadow: var(--shadow-sm);
   color:var(--tsln-white);
   text-decoration:none;
   scroll-snap-align:start;
@@ -342,6 +344,8 @@ img{
   flex-shrink:0;
 }
 
+
+
 /* =========================================
    SEARCH BAR BUTTON
 ========================================= */
@@ -352,12 +356,12 @@ img{
   max-width:50rem;
   min-height:3.25rem;
   display:flex;
-  margin: 2rem 0;
+  margin: 3rem 0 !important;
   align-items:center;
   gap:.85rem;
   padding:0 1rem;
   border:1px solid var(--tsln-text);
-  border-radius:var(--radius-sm);
+  border-radius:var(--radius-full);
   background:var(--tsln-border);
   color:var(--tsln-text);
   box-shadow:var(--shadow-sm);
@@ -436,6 +440,7 @@ img{
 
 .tslnSearchCategoryCarousel::-webkit-scrollbar{
   display:none;
+  
 }
 
 .tslnSearchCategoryCard{
@@ -446,9 +451,10 @@ img{
   align-items:center;
   justify-content:center;
   padding:0 1.25rem;
-  border:1px solid var(--tsln-muted);
+  border:1px solid var(--tsln-border);
   border-radius:var(--radius-full);
   background:var(--tsln-white);
+  box-shadow: var(--shadow-sm);
   color:var(--tsln-blue-dark);
   font-size:var(--text-sm);
   font-weight:var(--font-weight-title);
@@ -460,7 +466,7 @@ img{
 .tslnSearchCategoryCard:hover{
   background:var(--tsln-blue);
   color:var(--tsln-white);
-  border-color:var(--tsln-blue);
+  border-color:transparent;
 }
 
 
