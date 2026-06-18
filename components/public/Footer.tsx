@@ -104,8 +104,6 @@ export default function Footer() {
         </div>
 
       </div>
-            <div className="tslnSeparatorContainer" />
-
       <div className="tslnFooterBottom">
         <div className="tslnFooterBottomLinks">
           <Link href="/privacy-policy">
