@@ -261,7 +261,7 @@ img{
 .tslnHeroCarouselCard{
   position:relative;
   flex:0 0 45%;
-  height:25rem;
+  height:16rem;
   overflow:hidden;
   border-radius:var(--radius-sm);
   background:var(--tsln-blue-dark);
@@ -1051,7 +1051,7 @@ img{
 
   .tslnHeroCarouselCard{
     flex:0 0 95%;
-    height:22rem;
+    height:17rem;
   }
 
   .tslnHeroCarouselContent{
