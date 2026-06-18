@@ -82,7 +82,7 @@
 .tslnFooterLinks{
   display:flex;
   flex-direction:column;
-  gap:.9rem;
+  gap:.30rem;
 }
 
 .tslnFooterLinks a,
@@ -164,7 +164,7 @@
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:1rem;
+  gap:3rem;
   color:var(--tsln-muted);
   font-weight: var(--font-weight-legal-medium);
   font-size:var(--text-small);
@@ -180,7 +180,7 @@
   align-items:center;
   justify-content:flex-end;
   flex-wrap:wrap;
-  gap:1rem;
+  gap:.55rem;
 }
 
 .tslnFooterBottomLinks a{
@@ -225,7 +225,7 @@
 
   .tslnFooterHeading{
     text-align:left;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 
   .tslnFooterLinks{
