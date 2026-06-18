@@ -36,7 +36,7 @@
 
 .tslnHeaderInner{
   width:min(100%, var(--container-max));
-  min-height:3.6rem;
+  min-height:4.5rem;
   margin-inline:auto;
   padding:0 var(--container-padding);
   display:flex;
@@ -117,7 +117,7 @@
 }
 
 .tslnHeaderLink {
-  min-height:3.5rem;
+  min-height:4.5rem;
   display:inline-flex;
   align-items:center;
   justify-content:center;

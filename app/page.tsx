@@ -18,11 +18,12 @@ export default function Home() {
   return (
     <>
       <HeroPage />
+       <CategorySection />
         
         {/*<HeaderScrollSeparator />*/}
 
           <main className="tslnComingPage">
-             <CategorySection />
+            
 
                     
                     

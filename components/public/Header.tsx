@@ -87,7 +87,7 @@ export default function Header() {
                 Contact
                 </Link>
 
-                <Link href="/lauch-countdown" className="tslnHeaderLinkbtn">
+                <Link href="/launch-countdown" className="tslnHeaderLinkbtn">
                 Next Launch
                 </Link>
             </nav>

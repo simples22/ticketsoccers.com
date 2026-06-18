@@ -39,17 +39,17 @@ export default function HeroPage() {
     />
   </div>
 
-  <div className="tslnHeroSearchOverlay" />
-    <div className="tslnHeroSearchContent">
-      <h2>
-        For Your Live
-        </h2>
-        <p>
-        Discover tickets for any live entertainment events across North America and beyond.
-      </p>
-    <SearchOverlay />
-  </div>
-</div>
+      <div className="tslnHeroSearchOverlay" />
+        <div className="tslnHeroSearchContent">
+          <h2>
+            For Your Live
+            </h2>
+            <p>
+            Discover tickets for any live entertainment events across North America and beyond.
+          </p>
+        <SearchOverlay />
+      </div>
+    </div>
 
       <SearchCategoryGrid />
 
