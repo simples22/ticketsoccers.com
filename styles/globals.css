@@ -483,6 +483,8 @@ img{
 
 .tslnSearchCategorySection{
   width:100%;
+  z-index: 5;
+  top: 0;
   padding:2rem var(--container-padding);
   
 }
@@ -490,7 +492,6 @@ img{
 .tslnSearchCategoryInner{
   width:min(100%, var(--container-max));
   margin-inline:auto;
-  margin-top: -2rem;
   background: var(--tsln-white);
   border-radius: var(--radius-full);
 }
@@ -507,6 +508,7 @@ img{
   align-items:center;
   gap:1rem;
   overflow-x:auto;
+  margin-top: -1rem;
   overflow-y:hidden;
   padding: 1rem 0 .75rem;
   scrollbar-width:none;
@@ -645,17 +647,18 @@ img{
 
 
 /*=========================================
-    08.   IMAGEGRID PROMOTED
-===========================================*/
-/* =========================================
-   UI IMAGE GRID
+    08.   IMAGEGRID PROMOTED - UI IMAGE GRID
 ========================================= */
 
 
 .uiImageGridblock{
   width:100%;
+  position: relative;
+  z-index: 5;
+  top: 0;
   max-width:var(--container-max);
   margin-inline:auto;
+  background: var(--tsln-white);
   padding:0 var(--container-padding);
   grid-template-columns:repeat(3, 1fr);
 }
@@ -1111,11 +1114,12 @@ img{
 
   .uiImageGridblock{
   width:100%;
- padding: 0;
-}
+  padding: 0;
+  }
+
   .uiImageGrid{
     padding: 3rem 1rem;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:2fr 1fr;
     border-radius: 0;
   }
 

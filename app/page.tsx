@@ -57,6 +57,7 @@ export default function Home() {
 
                    <SponsoredGrid />
                  <TrustGrid />
+                 <UiImageMasonryGrid />
                  {/*
               <HomeFaqs />
               */}

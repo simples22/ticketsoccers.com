@@ -5,14 +5,17 @@ import AboutRegions from "@/components/public/about/AboutRegions";
 import AboutNext from "@/components/public/about/AboutNext";
 import UiSectionBackground from "@/components/background/UiSectionBackground";
 import TrustGrid from "@/components/public/TrustGrid";
+import UiImageGrid from "@/components/ui/UiImageMasonryGrid";
 
 
 export default function AboutPage() {
   return (
     <main>
       <UiHero
-          title="What's About Us"
-         />
+        title="What's About Us"
+        image="/images/about/about-hero.jpg"
+        imageAlt="About Ticketsoccers"
+      />
       <AboutOverview />
         <AboutMissionCards />
 
@@ -26,6 +29,7 @@ export default function AboutPage() {
                 className="afterOverview"
               />
               <TrustGrid />
+              <UiImageGrid />
       {/*<AboutNext />*/}
     </main>
   );

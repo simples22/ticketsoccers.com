@@ -10,12 +10,11 @@
   padding:4rem 0;
   background:var(--tsln-white);
   color:var(--tsln-blue-dark);
-
 }
 
 .tslnSeparatorContainer{
   width:min(100%, var(--container-max));
-  margin:2rem auto;
+  margin:1rem auto;
   padding:0 var(--container-padding);
 }
 
@@ -204,7 +203,7 @@
 
   .tslnFooterInner{
     grid-template-columns:1fr;
-    padding:3rem 3rem;
+    padding:3rem 2rem;
     gap:2.25rem;
     text-align:center;
   }

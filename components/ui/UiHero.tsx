@@ -65,20 +65,19 @@ export default function UiHero({
       ].join(" ")}
     >
       {hasImage && image ? (
-        <>
-          <div className="uiHeroBg">
-            <PBImage
-              src={image}
-              alt={imageAlt ?? title}
-              fill
-              priority
-              className="uiHeroImg"
-              sizes="100vw"
-            />
-          </div>
-
+        <div className="uiHeroBg">
+            <div className="uiHeroBgInner">
+              <PBImage
+                src={image}
+                alt={imageAlt ?? title}
+                fill
+                priority
+                className="uiHeroImg"
+                sizes="100vw"
+              />
+            </div>
           <div className="uiHeroOverlay" />
-        </>
+        </div>
       ) : null}
 
       <UiHeroMark />

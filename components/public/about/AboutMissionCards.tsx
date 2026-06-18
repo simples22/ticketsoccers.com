@@ -11,16 +11,7 @@ const cards = [
     content:
       "Ticketsoccers, ticketsoccers.com continuously invests in platform improvements, search experiences, category organization, event accessibility, and audience engagement tools. Growth remains a core objective as the company expands its reach and develops new opportunities for visitors and partners.",
   },
-  {
-    title: "Company Support",
-    content:
-      "The company is supported through strategic partnerships, technology providers, marketing initiatives, and ongoing development efforts that help strengthen platform reliability, visibility, and user experience.",
-  },
-  {
-    title: "Looking Ahead",
-    content:
-      "Looking ahead, Ticketsoccers intends to broaden its event coverage, strengthen industry relationships, and continue developing resources that help visitors discover experiences across sports, entertainment, culture, and live events worldwide.",
-  },
+
 ];
 
 export default function AboutMissionCards() {

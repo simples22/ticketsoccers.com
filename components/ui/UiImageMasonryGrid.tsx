@@ -3,10 +3,10 @@ import PBImage from "@/components/ui/PBImage";
 
 const images = [
   "/gallery/image-1.jpg",
-  "/gallery/image-2.jpg",
-  "/gallery/image-3.jpg",
+  "/gallery/images-2.jpg",
+  "/gallery/images-3.jpg",
   "/gallery/image-4.jpg",
-   "/gallery/image-5.jpg",
+    "/gallery/image-5.jpg",
   "/gallery/image-6.jpg",
   "/gallery/image-7.jpg",
   "/gallery/image-8.jpg",

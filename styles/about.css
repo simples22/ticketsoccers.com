@@ -45,8 +45,7 @@ position:relative;
   width:min(100%, var(--container-max));
   margin-inline:auto;
   display:grid;
-  padding-top: 3rem;
-  grid-template-columns:minmax(20rem, .55fr) minmax(0, 1.45fr);
+  grid-template-columns:minmax(20rem, .65fr) minmax(0, 1.35fr);
   gap:8rem;
   background: var(--tsln-white);
   align-items:stretch;
@@ -66,7 +65,7 @@ position:relative;
   display:flex;
   flex-direction:column;
   background:var(--tsln-white);
-  padding: 2rem 0;
+  padding: 0;
   padding-bottom: 2rem;
   height:100%;
 }
@@ -358,7 +357,7 @@ position:relative;
   grid-template-columns: repeat(2, 1fr);
   align-items: stretch;
   gap: 3rem;
-  background: var(--tsln-blue-dark);
+  background: var(--tsln-border);
 }
 
 .aboutMissionCard {
