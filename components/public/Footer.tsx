@@ -20,6 +20,9 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="tslnFooter">
+
+    <div className="tslnSeparatorContainer" />
+
       <div className="tslnFooterInner">
 
         {/* Company */}
@@ -33,6 +36,24 @@ export default function Footer() {
             The Global platform of ticketing discovery for sports, concerts, festivals, shows, theatres,
             and live events.
           </p>
+        </div>
+        
+        <div className="tslnFooterLinks">
+          <div className="tslnFooterHeading">
+            Get In Touch
+          </div>
+          <Link href="/ccpa-notice">
+            CCPA Notice
+          </Link>
+
+          <Link href="/feedback">
+            Enquiry Feedback ?
+          </Link>
+
+          <Link href="/user-agrement">
+            User Agreement
+          </Link>
+
         </div>
 
         {/* Legal */}
@@ -61,9 +82,6 @@ export default function Footer() {
             Terms of Use
           </Link>
 
-          <Link href="/terms-of-use">
-            Terms of Use
-          </Link>
         </div>
 
         {/* Connect */}
@@ -98,9 +116,9 @@ export default function Footer() {
         </div>
 
       </div>
+            <div className="tslnSeparatorContainer" />
 
       <div className="tslnFooterBottom">
-        
         <div className="tslnFooterBottomLinks">
           <Link href="/privacy-policy">
             Privacy Policy

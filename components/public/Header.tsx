@@ -86,11 +86,15 @@ export default function Header() {
                 <Link href="/contact" className="tslnHeaderLink">
                 Contact
                 </Link>
-            </nav>
-            </div>
 
-            <div className="tslnHeaderRight">
-            <button
+                <Link href="/lauch-countdown" className="tslnHeaderLinkbtn">
+                Next Launch
+                </Link>
+            </nav>
+        </div>
+
+      <div className="tslnHeaderRight">
+          <button
             type="button"
             className={`tslnMobileBtn ${open ? "open" : ""}`}
             aria-label={open ? "Close menu" : "Open menu"}

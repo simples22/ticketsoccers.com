@@ -9,7 +9,7 @@ const cards = [
   {
     title: "Innovation & Growth",
     content:
-      "Ticketslan continuously invests in platform improvements, search experiences, category organization, event accessibility, and audience engagement tools. Growth remains a core objective as the company expands its reach and develops new opportunities for visitors and partners.",
+      "Ticketsoccers, ticketsoccers.com continuously invests in platform improvements, search experiences, category organization, event accessibility, and audience engagement tools. Growth remains a core objective as the company expands its reach and develops new opportunities for visitors and partners.",
   },
   {
     title: "Company Support",
@@ -19,7 +19,7 @@ const cards = [
   {
     title: "Looking Ahead",
     content:
-      "Looking ahead, Ticketslan intends to broaden its event coverage, strengthen industry relationships, and continue developing resources that help visitors discover experiences across sports, entertainment, culture, and live events worldwide.",
+      "Looking ahead, Ticketsoccers intends to broaden its event coverage, strengthen industry relationships, and continue developing resources that help visitors discover experiences across sports, entertainment, culture, and live events worldwide.",
   },
 ];
 

@@ -4,21 +4,36 @@
 
 .tslnFooter{
   width:100%;
-  z-index: 4;
+  z-index: 5;
   top: 0;
   margin-top:auto;
-  background:var(--tsln-blue-dark);
-  color:var(--tsln-white);
-  border-top:1px solid rgba(255,255,255,.08);
+  padding:4rem 0;
+  background:var(--tsln-white);
+  color:var(--tsln-blue-dark);
+
+}
+
+.tslnSeparatorContainer{
+  width:min(100%, var(--container-max));
+  margin:2rem auto;
+  padding:0 var(--container-padding);
+}
+
+.tslnSeparatorContainer::after{
+  content:"";
+  display:block;
+  height:1px;
+  background:var(--tsln-border);
 }
 
 .tslnFooterInner{
-  width:min(100%,var(--container-max));
+  width:min(100%, var(--container-max));
   margin-inline:auto;
   padding:4rem var(--container-padding);
   display:grid;
-  grid-template-columns:1.5fr 1fr 1fr;
+  grid-template-columns:1.2fr 1fr 1fr 1.3fr;
   gap:3rem;
+  align-items:start;
 }
 
 .tslnFooterBrand{
@@ -29,28 +44,39 @@
 
 .tslnFooterLogo{
   width:max-content;
-  color:var(--tsln-white) !important;
+  margin-bottom:1rem;
+  color:var(--tsln-blue);
   font-size:var(--text-xl);
-  font-weight:var(--font-weight-title);
-  letter-spacing:-.03em;
-  font-style: italic;
-  margin-bottom: 2rem;
+  font-weight:var(--font-weight-h1);
+  letter-spacing:var(--letter-tight);
+  font-style:none;
+  line-height:1;
+  text-decoration:none;
+}
+
+.tslnFooterLogo .tslnBrandText{
+  font-size:var(--text-xl);
+  display: block;
+  font-weight:var(--font-weight-h1);
+  letter-spacing:var(--letter-tight);
+  line-height:1;
 }
 
 .tslnFooterBrand p{
   margin:0;
   max-width:32rem;
-  color:var(--tsln-white);
+  display: none;
+  color:var(--tsln-blue-dark);
+  font-size:var(--text-small);
+  font-weight:var(--font-weight-medium);
   line-height:1.7;
 }
 
 .tslnFooterHeading{
-  margin-bottom:1rem;
-  color:var(--tsln-white);
-  font-size:.95rem;
-  font-weight:700;
-  text-transform:uppercase;
-  letter-spacing:.08em;
+  margin:0 0 1rem;
+  color:var(--tsln-blue-dark);
+  font-size:var(--text-md);
+  font-weight:var(--font-weight-h1);
 }
 
 .tslnFooterLinks{
@@ -62,26 +88,39 @@
 .tslnFooterLinks a,
 .tslnFooterContact a{
   width:max-content;
-  color:var(--tsln-white);
-  font-size: var(--text-small);
-  font-weight: var(--font-weight-title);
+  color:var(--tsln-blue-dark);
+  font-size:var(--text-small);
+  font-weight:var(--font-weight-medium);
+  text-decoration:none;
   transition:var(--transition-fast);
 }
 
-.tslnFooterLinks a:hover,
-.tslnFooterContact a:hover{
-  color:var(--tsln-border);
-  text-decoration-color:var(--tsln-blue);
+.tslnFooterLinks a:hover{
+  color:var(--tsln-muted);
+  text-decoration:underline;
   text-underline-offset:.25rem;
 }
 
 .tslnFooterContact{
-  margin-top:1rem;
+  width:max-content;
+  margin-top:4rem;
+  padding:.65rem 1rem;
+  border:1px solid var(--tsln-border);
+  border-radius:var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  background:var(--tsln-white);
+  transition:var(--transition-fast);
+}
+
+.tslnFooterContact:hover{
+  background:var(--tsln-bg-muted);
+  box-shadow:var(--shadow-sm);
 }
 
 .tslnFooterSocials{
   display:flex;
-  justify-content:flex-end;
+  justify-content:flex-start;
+  align-items:center;
   flex-wrap:wrap;
   gap:.75rem;
 }
@@ -95,98 +134,142 @@
   flex:0 0 3rem;
   border-radius:var(--radius-full);
   background:var(--tsln-blue);
-  border:1px solid rgba(255,255,255,.10);
+  border:1px solid var(--tsln-blue);
   color:var(--tsln-white);
   text-decoration:none;
   transition:var(--transition-normal);
 }
 
 .tslnSocialIcon svg{
-  width:2.1rem;
-  height:2.1rem;
+  width:1.65rem;
+  height:1.65rem;
   display:block;
 }
 
 .tslnSocialIcon:hover{
-  background:var(--tsln-border);
-  border-color:var(--tsln-border);
+  background:var(--tsln-white);
+  border-color:var(--tsln-blue);
   color:var(--tsln-blue);
   transform:translateY(-2px);
 }
-
 
 /* =========================================
    12. FOOTER BOTTOM
 ========================================= */
 
 .tslnFooterBottom{
-  border-top:1px solid rgba(255,255,255,.08);
+  width:min(100%, var(--container-max));
+  margin-inline:auto;
+  padding:1.5rem var(--container-padding);
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:1rem;
-  padding:3.25rem var(--container-padding);
-  color:var(--tsln-white);
+  color:var(--tsln-muted);
+  font-weight: var(--font-weight-legal-medium);
   font-size:var(--text-small);
+}
+
+.tslnFooterBottom p{
+  margin:0;
+  font-weight: var(--font-weight-legal-medium);
 }
 
 .tslnFooterBottomLinks{
   display:flex;
   align-items:center;
+  justify-content:flex-end;
+  flex-wrap:wrap;
   gap:1rem;
 }
 
 .tslnFooterBottomLinks a{
-  color:var(--tsln-white);
+  color:var(--tsln-blue-dark);
+  text-decoration:none;
+  font-weight: var(--font-weight-legal-medium);
+  transition:var(--transition-fast);
 }
 
 .tslnFooterBottomLinks a:hover{
-  color:var(--tsln-white);
+  color:var(--tsln-blue);
+  text-decoration:underline;
+  text-underline-offset:.25rem;
 }
 
-
-
+/* =========================================
+   FOOTER MOBILE
+========================================= */
 
 @media(max-width:768px){
-  :root{
-    --container-padding:1rem;
-    --text-hero:clamp(2.2rem,12vw,3rem);
-  }
 
   .tslnFooterInner{
     grid-template-columns:1fr;
-    padding:3rem 1rem;
-    gap:3rem;
+    padding:3rem 3rem;
+    gap:2.25rem;
+    text-align:center;
+  }
+
+  .tslnFooterBrand{
+    align-items:center;
+  }
+
+  .tslnFooterLogo{
+    margin-inline:auto;
+    margin-bottom:.75rem;
+  }
+
+  .tslnFooterBrand p{
+    max-width:100%;
+    text-align:center;
   }
 
   .tslnFooterHeading{
-  border-bottom: 1px solid var(--tsln-border);
-}
-
-  .tslnFooterSocials {
-    justify-content:center;
-    padding: 1rem 0;
+    text-align:left;
+    margin-top: 2rem;
   }
 
-  .tslnSocialIcon {
+  .tslnFooterLinks{
+    align-items:left;
+  }
+
+  .tslnFooterLinks a,
+  .tslnFooterContact a{
+    width:auto;
+    text-align:left;
+  }
+
+  .tslnFooterContact{
+    margin:1rem auto 0;
+    margin-top: 3rem;
+  }
+
+  .tslnFooterSocials{
+    justify-content:center;
+    padding:.5rem 0;
+  }
+
+  .tslnSocialIcon{
     width:3rem;
     height:3rem;
     flex-basis:3rem;
   }
 
-  .tslnSocialIcon svg {
-    width:2.1rem;
-    height:2.1rem;
+  .tslnSocialIcon svg{
+    width:1.55rem;
+    height:1.55rem;
   }
 
-  .tslnFooterBottom {
+  .tslnFooterBottom{
+    padding:1.5rem 1rem 2rem;
     flex-direction:column;
     align-items:center;
-    gap:.75rem;
+    justify-content:center;
+    text-align:center;
+    gap:.85rem;
   }
 
-  .tslnFooterBottomLinks {
-    flex-wrap:wrap;
-    text-align: center;
+  .tslnFooterBottomLinks{
+    justify-content:center;
+    gap:.85rem;
   }
 }

@@ -107,7 +107,7 @@ export default function LegalPolicyPages() {
           </p>
 
           <p className="tslnLegalSectionnote">
-            © {new Date().getFullYear()} Ticketsoccers Limited Network. All rights reserved. www.ticketsoccers™, TSLNT.
+            Ticketsoccers Limited Network. All rights reserved. www.ticketsoccers™, TSLN.
           </p>
         </div>
       </main>

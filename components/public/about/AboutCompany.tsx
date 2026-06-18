@@ -30,6 +30,20 @@ export default function AboutCompany() {
                 around the world.
             </p>
             </section>
+
+             <div className="tslnNoticeFounder">
+            <h2>
+                <strong>Founder & CEO</strong>
+                Build by Fans, Inspired by the Live Experience
+                </h2>
+
+                <p>
+                    At Ticketsoccers, we believe sports are more than games.
+                    They are moments that unite people, communities, and generations.
+                    No television broadcast or digital experience can fully replace
+                    the emotion of being there in person.
+                </p>
+            </div>
     </article>
   );
 }

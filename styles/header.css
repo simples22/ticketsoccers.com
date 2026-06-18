@@ -13,9 +13,11 @@
 
   --lh-tight:1.20;
   --lh-normal:1.25;
+  
 
-  --letter-tight:-.06em;
+  --letter-tight:-.02em;
   --letter-normal:0.01em;
+  --letter-normal-logo:-.05;
 }
 
 
@@ -34,7 +36,7 @@
 
 .tslnHeaderInner{
   width:min(100%, var(--container-max));
-  min-height:4.5rem;
+  min-height:3.6rem;
   margin-inline:auto;
   padding:0 var(--container-padding);
   display:flex;
@@ -48,17 +50,35 @@
 
 .tslnBrand{
   display:inline-flex;
+  align-items:center;
+  gap:.65rem;
+  text-decoration:none;
+  color:var(--tsln-blue-dark);
+}
+
+.tslnBrandIcon{
+  position:relative;
+  width:2.25rem;
+  height:2.25rem;
+  flex-shrink:0;
+}
+
+.tslnBrandIconImg{
+  object-fit:contain;
+}
+
+.tslnBrand{
+  display:inline-flex;
   align-items:flex-start;
   gap:.12rem;
   color:var(--tsln-blue-dark);
   text-decoration:none;
-  font-weight: var(--font-weight-title);
+  font-weight: var(--font-weight-h1);
   white-space:nowrap;
   transition:var(--transition-fast);
 }
 
 .tslnBrand:hover{
-  color:var(--tsln-muted);
   opacity:.99;
 }
 
@@ -86,8 +106,18 @@
   min-width:0;
 }
 
+.tslnHeaderLinkbtn{
+  border: 1px solid var(--tsln-border);
+  padding: .55rem .75rem;
+  background: var(--tsln-blue);
+  margin-right: 0;
+  color: var(--tsln-white);
+  font-weight: var(--font-weight-medium);
+  border-radius:var(--radius-full) ;
+}
+
 .tslnHeaderLink {
-  min-height:4.5rem;
+  min-height:3.5rem;
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -100,10 +130,13 @@
   transition:var(--transition-fast);
 }
 
+.tslnHeaderLinkbtn:hover{
+  box-shadow: var(--shadow-sm);
+  background: var(--tsln-text);
+  color: var(--tsln-white);
+}
 .tslnHeaderLink:hover{
-  color:var(--tsln-blue);
-  background:var(--tsln-bg-muted);
-  border-bottom: 1px solid var(--tsln-blue);
+  color:var(--tsln-muted);
 }
 
 /* =========================================
@@ -271,10 +304,24 @@ body.tslnMenuOpen .tslnHeaderInner{
 
   .tslnHeaderInner{
     min-height:var(--tsln-mobile-header-height);
-    padding:0 1rem;
+    padding:1rem 1rem;
   }
 
-  body.tslnMenuOpen .tslnHeaderInner{
+    .tslnBrandIcon{
+    width:2rem;
+    height:2rem;
+  }
+
+  .tslnBrand{
+  display:inline-flex;
+  
+}
+
+  .tslnBrandText{
+    display: none;
+  }
+
+  body.tslnMenuOpen .tslnHeaderInner {
     opacity:0;
     visibility:hidden;
     pointer-events:none;
@@ -369,10 +416,10 @@ body.tslnMenuOpen .tslnHeaderInner{
   .tslnMobileSearchBtn{
     width:90%;
     margin: 2rem auto;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem !important;
     max-width:none;
-    border: 1px solid var(--tsln-blue);
-    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--tsln-border);
+    box-shadow:none;
   }
 
   .tslnMobileNav{

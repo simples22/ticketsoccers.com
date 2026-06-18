@@ -3,13 +3,13 @@ import FaqAccordion from "@/components/public/faqs/FaqAccordion";
 import UiTitle from "@/components/ui/UiTitle";
 import UiHero from "@/components/ui/UiHero";
 import FaqHelpGuide from "@/components/public/faqs/help/FaqHelpGuide";
+import HelpHeroPage from "@/components/public/faqs/help/HelpHeroPage";
 
 export default function FaqsPage() {
   return (
     <>
-        <UiHero 
-        title=" Help Center"
-        />
+
+    <HelpHeroPage />
         <FaqHelpGuide />
         
     <main className="tslnFaqPage">

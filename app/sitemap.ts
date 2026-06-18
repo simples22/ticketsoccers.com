@@ -10,12 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/help-and-faqs",
     "/privacy-policy",
     "/terms-of-use",
-    "/category/sports",
-    "/category/family",
-    "/music",
-    "/festival",
-    "/comedy",
-    "/shows",
+    "/help-and-faqs",
   ];
 
   return routes.map((route) => ({

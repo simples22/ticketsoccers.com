@@ -9,7 +9,7 @@
 
 .tslnPublicityInner{
   width:min(100%, var(--container-max));
-  min-height:22rem;
+  min-height:25rem;
   margin-inline:auto;
   position:relative;
   overflow:hidden;
@@ -18,10 +18,10 @@
   align-items:center;
   justify-content:center;
   gap:1.25rem;
-  padding:2rem;
+  padding:1rem;
   border-radius:var(--radius-sm);
   color:var(--tsln-white);
-  box-shadow:var(--shadow-md);
+  box-shadow:var(--shadow-sm);
   animation:tslnPublicityBackground 100s ease-in-out infinite;
 }
 
@@ -195,7 +195,12 @@
 
 .tslnPublicityPowered .tslnBrandText{
   font-size:1rem;
+  display: block;
   color:var(--tsln-white);
+}
+
+.tslnPublicityPowered .tslnBrandIcon{
+  display: none;
 }
 
 .tslnPublicityPowered .tslnBrandTm{
@@ -280,8 +285,7 @@
 
   .tslnPublicityInner{
     min-height:20rem;
-    padding:1.25rem;
-    border-radius:var(--radius-md);
+    padding:0;
   }
 
   .tslnPublicityWords{

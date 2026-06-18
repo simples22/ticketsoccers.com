@@ -1,4 +1,5 @@
 import Link from "next/link";
+import PBImage from "@/components/ui/PBImage";
 
 type BrandLogoProps = {
   href?: string;
@@ -15,6 +16,16 @@ export default function BrandLogo({
       className={`tslnBrand ${className}`}
       aria-label="Ticketsoccers Home"
     >
+      <span className="tslnBrandIcon">
+        <PBImage
+          src="/logo/icon.png"
+          alt=""
+          fill
+          className="tslnBrandIconImg"
+          sizes="40px"
+        />
+      </span>
+
       <span className="tslnBrandText">
         Ticketsoccers
       </span>
