@@ -303,8 +303,8 @@ body.tslnMenuOpen .tslnHeaderInner{
   }
 
   .tslnHeaderInner{
-    min-height:var(--tsln-mobile-header-height);
-    padding:1rem 1rem;
+    min-height:none;
+    padding:0rem 1rem;
   }
 
     .tslnBrandIcon{

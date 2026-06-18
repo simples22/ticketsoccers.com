@@ -658,6 +658,7 @@ img{
   top: 0;
   max-width:var(--container-max);
   margin-inline:auto;
+  padding-bottom: 3rem !important;
   background: var(--tsln-white);
   padding:0 var(--container-padding);
   grid-template-columns:repeat(3, 1fr);

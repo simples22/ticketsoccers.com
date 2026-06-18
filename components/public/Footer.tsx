@@ -20,24 +20,43 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="tslnFooter">
+      <div className="tslnSeparatorContainer" />
+        <div className="tslnFooterInner">
 
-    <div className="tslnSeparatorContainer" />
-
-      <div className="tslnFooterInner">
-
-        {/* Company */}
-        <div className="tslnFooterBrand">
-
-          <BrandLogo 
-          className="tslnFooterLogo" 
-          />
-
-          <p>
-            The Global platform of ticketing discovery for sports, concerts, festivals, shows, theatres,
-            and live events.
-          </p>
-        </div>
+            {/* Company */}
+            <div className="tslnFooterBrand">
+              <BrandLogo 
+                className="tslnFooterLogo" 
+              />
+              <p>
+                The Global platform of ticketing discovery for sports, concerts, festivals, shows, theatres,
+                and live events.
+              </p>
+            </div>
         
+
+        {/* Legal */}
+        <div className="tslnFooterLinks">
+          <div className="tslnFooterHeading">
+            Legal
+          </div>
+          <Link href="/">
+            Go To Home
+          </Link>
+          <Link href="/about">
+            About Us
+          </Link>
+          <Link href="/help-and-faqs">
+            Help Center
+          </Link>
+          <Link href="/privacy-policy">
+            Privacy Policy
+          </Link>
+          <Link href="/terms-of-use">
+            Terms of Use
+          </Link>
+        </div>
+
         <div className="tslnFooterLinks">
           <div className="tslnFooterHeading">
             Get In Touch
@@ -45,43 +64,12 @@ export default function Footer() {
           <Link href="/ccpa-notice">
             CCPA Notice
           </Link>
-
           <Link href="/feedback">
             Enquiry Feedback ?
           </Link>
-
           <Link href="/user-agrement">
             User Agreement
           </Link>
-
-        </div>
-
-        {/* Legal */}
-        <div className="tslnFooterLinks">
-          <div className="tslnFooterHeading">
-            Legal
-          </div>
-
-          <Link href="/">
-            Home
-          </Link>
-
-          <Link href="/about">
-            About Us
-          </Link>
-
-          <Link href="/help-and-faqs">
-            Help Center
-          </Link>
-
-          <Link href="/privacy-policy">
-            Privacy Policy
-          </Link>
-
-          <Link href="/terms-of-use">
-            Terms of Use
-          </Link>
-
         </div>
 
         {/* Connect */}

@@ -16,7 +16,7 @@ export default function NotFound() {
                             <UiHeroMark />
                         </div>
                 </header>
-        <div className="tslnBadge">t</div>
+       
 
         <h1>Page not found.</h1>
 

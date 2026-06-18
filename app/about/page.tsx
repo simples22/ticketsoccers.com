@@ -6,30 +6,30 @@ import AboutNext from "@/components/public/about/AboutNext";
 import UiSectionBackground from "@/components/background/UiSectionBackground";
 import TrustGrid from "@/components/public/TrustGrid";
 import UiImageGrid from "@/components/ui/UiImageMasonryGrid";
+import AboutHeroSpecial from "@/components/public/about/AboutHeroSpecial";
 
 
 export default function AboutPage() {
   return (
     <main>
-      <UiHero
-        title="What's About Us"
+      <AboutHeroSpecial
+        title=""
         image="/images/about/about-hero.jpg"
-        imageAlt="About Ticketsoccers"
+        video="/videos/about-hero.mp4"
       />
-      <AboutOverview />
-        <AboutMissionCards />
+       <AboutMissionCards />
+        <AboutOverview />
+          <UiImageGrid />
+            <AboutRegions />
 
-        <AboutRegions />
-
-          <div className="viewback">
-          
-          </div>
-            <UiSectionBackground
-                image="/images/backgrounds/aboutsite-bg.jpg"
-                className="afterOverview"
-              />
-              <TrustGrid />
-              <UiImageGrid />
+              <div className="viewback">
+                </div>
+                  <UiSectionBackground
+                    image="/images/backgrounds/aboutsite-bg.jpg"
+                    className="afterOverview"
+                  />
+            <TrustGrid />
+              
       {/*<AboutNext />*/}
     </main>
   );

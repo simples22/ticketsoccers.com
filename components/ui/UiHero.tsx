@@ -3,7 +3,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import HeaderScrollSeparator from "@/components/public/HeaderScrollSeparator";
 import PBImage from "@/components/ui/PBImage";
 import UiHeroMark from "@/components/ui/UiHeroMark";
 
@@ -28,15 +27,11 @@ function formatSegment(segment: string) {
 function buildBreadcrumbs(pathname: string) {
   const segments = pathname.split("/").filter(Boolean);
 
-  return segments.map((segment, index) => {
-    const href = `/${segments.slice(0, index + 1).join("/")}`;
-
-    return {
-      label: formatSegment(segment),
-      href,
-      current: index === segments.length - 1,
-    };
-  });
+  return segments.map((segment, index) => ({
+    label: formatSegment(segment),
+    href: `/${segments.slice(0, index + 1).join("/")}`,
+    current: index === segments.length - 1,
+  }));
 }
 
 export default function UiHero({
@@ -55,7 +50,6 @@ export default function UiHero({
   const breadcrumbs = buildBreadcrumbs(pathname);
 
   return (
-    <>
     <section
       className={[
         "uiHero",
@@ -64,9 +58,12 @@ export default function UiHero({
         className,
       ].join(" ")}
     >
-      {hasImage && image ? (
-        <div className="uiHeroBg">
-            <div className="uiHeroBgInner">
+      <UiHeroMark />
+
+      <div className="uiHeroInner">
+        {hasImage && image ? (
+          <>
+            <div className="uiHeroBg">
               <PBImage
                 src={image}
                 alt={imageAlt ?? title}
@@ -76,50 +73,49 @@ export default function UiHero({
                 sizes="100vw"
               />
             </div>
-          <div className="uiHeroOverlay" />
-        </div>
-      ) : null}
 
-      <UiHeroMark />
-
-      <div className="uiHeroInner">
-        {showBreadcrumbs ? (
-          <nav className="uiBreadcrumbs" aria-label="Breadcrumb">
-            <Link href="/">Home</Link>
-
-            {breadcrumbs.map((item) => (
-              <span className="uiBreadcrumbItem" key={item.href}>
-                <span className="uiBreadcrumbSep">/</span>
-
-                {item.current ? (
-                  <span aria-current="page">{item.label}</span>
-                ) : (
-                  <Link href={item.href}>{item.label}</Link>
-                )}
-              </span>
-            ))}
-          </nav>
+            <div className="uiHeroOverlay" />
+          </>
         ) : null}
 
-        {badge ? <span className="uiHeroBadge">{badge}</span> : null}
+        <div className="uiHeroContent">
+          {showBreadcrumbs ? (
+            <nav className="uiBreadcrumbs" aria-label="Breadcrumb">
+              <Link href="/">Home</Link>
 
-        <div className="uiHeroTitleRow">
+              {breadcrumbs.map((item) => (
+                <span className="uiBreadcrumbItem" key={item.href}>
+                  <span className="uiBreadcrumbSep">/</span>
+
+                  {item.current ? (
+                    <span aria-current="page">{item.label}</span>
+                  ) : (
+                    <Link href={item.href}>{item.label}</Link>
+                  )}
+                </span>
+              ))}
+            </nav>
+          ) : null}
+
+          {badge ? <span className="uiHeroBadge">{badge}</span> : null}
+
+          <div className="uiHeroTitleRow">
             <span className="uiHeroMark" aria-hidden="true">
-                ts
+              ts
             </span>
+
             <span className="uiHeroSlash" aria-hidden="true" />
+
             <h1>{title}</h1>
-            </div>
+          </div>
 
-        {text ? <p>{text}</p> : null}
+          {text ? <p>{text}</p> : null}
 
-        {children ? <div className="uiHeroActions">{children}</div> : null}
+          {children ? (
+            <div className="uiHeroActions">{children}</div>
+          ) : null}
+        </div>
       </div>
-      {/*
-      <HeaderScrollSeparator />
-      */}
     </section>
-        
-    </>
   );
 }

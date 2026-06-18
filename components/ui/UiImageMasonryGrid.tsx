@@ -15,29 +15,26 @@ const images = [
 export default function UiImageGrid() {
   return (
     <section className="uiImageGridblock">
-    <div className="uiImageGrid">
-      {images.map((src, index) => (
-        <div
-          key={src}
-          className={`uiImageGridItem ${
-            index === images.length - 1
-              ? "uiImageGridItemFeatured"
-              : ""
-          }`}
-        >
-          <PBImage
-            src={src}
-            alt=""
-            fill
-            className="uiImageGridImg"
-            sizes="(max-width:768px) 100vw, 33vw"
-          />
+        <div className="uiImageGrid">
+        {images.map((src, index) => (
+            <div
+            key={src}
+            className={`uiImageGridItem ${
+                index === images.length - 1
+                ? "uiImageGridItemFeatured"
+                : ""
+            }`}
+            >
+            <PBImage
+                src={src}
+                alt=""
+                fill
+                className="uiImageGridImg"
+                sizes="(max-width:768px) 100vw, 33vw"
+            />
+            </div>
+        ))}
         </div>
-      ))}
-
-      
-    </div>
- 
     </section>
   );
 }
