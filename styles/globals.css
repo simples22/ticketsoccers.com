@@ -96,6 +96,53 @@
 
 
 /* =========================================
+   FORM INPUT ZOOM FIX (IOS)
+========================================= */
+
+input,
+select,
+textarea,
+button {
+  font-size:16px;
+}
+
+@media (max-width:768px){
+
+  input,
+  select,
+  textarea{
+    font-size:16px !important;
+  }
+
+  .tslnSearchBarBtn,
+  .tslnSearchBarText,
+  .tslnTNWidgetSearch input,
+  .tslnSearchInput,
+  .tslnHeaderSearch input{
+    font-size:16px !important;
+  }
+}
+
+/* =========================================
+   SEARCH INPUTS
+========================================= */
+
+.tslnTNWidgetSearch input,
+.tslnSearchInput,
+.tslnHeaderSearch input,
+.tslnSearchBarText{
+  font-size:16px;
+  line-height:1.4;
+}
+
+input,
+textarea,
+select{
+  font-size:var(--text-md) !important;
+}
+
+
+/* =========================================
    02. RESET
 ========================================= */
 

@@ -36,12 +36,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://ticketsoccers.com"),
 
   title: {
-    default: "Ticketsoccers : Coming Soon Platform",
-    template: "%s | Ticketsoccers",
+    default: "TicketSoccers® | Buy Event Tickets - TicketSoccers | Buy Vallue MLS Tickets",
+    template: "%s | TicketSoccers",
   },
 
   description:
-    "Ticketsoccers is an event access and ticket discovery platform focused on sports, concerts, festivals, theatre performances, comedy shows, and live entertainment.",
+    "TicketSoccers is an event access and ticket discovery platform focused on sports, concerts, festivals, theatre performances, comedy shows, and live entertainment.",
 
   applicationName: "Ticketsoccers",
 
@@ -104,6 +104,10 @@ export default function RootLayout({
     >
       
       <body>
+        <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1"
+            />
         <div className="tslnSite">
             <SiteNetworkStatus />
               <ServiceWorkerRegister />

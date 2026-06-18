@@ -57,8 +57,8 @@
   margin-inline:auto;
   overflow:hidden;
   box-shadow: var(--shadow-sm);
-  border: .5rem solid var(--tsln-bg-muted);
   border-radius:var(--radius-sm);
+  padding-bottom: 3rem;
   background:var(--tsln-blue-dark);
 }
 
@@ -496,7 +496,7 @@ position:relative;
   }
 
   .tslnAboutHeroMedia{
-    min-height:24rem;
+    min-height:16rem;
   }
 
   .tslnAboutHeroContent{
