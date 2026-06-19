@@ -20,26 +20,30 @@ export default function ChronoPageBtn({
             fill
             className="tslnChronoPageBtnImg"
             sizes="(max-width:768px) 100vw, 84rem"
-            priority={false}
           />
         </div>
 
         <div className="tslnChronoPageBtnOverlay" />
 
         <div className="tslnChronoPageBtnContent">
+          <div className="tslnChronoText">
+
+            <h2>
+             Get Ready for your next Experience.
+            </h2>
+
+            <p>
+              Get ready for faster event Discovery, and live platform updates.
+            </p>
+          </div>
+
           <div className="tslnChronoActions">
-            <Link
-              href="/contact"
-              className="tslnBtn"
-            >
-              Contact Us
+            <Link href="/launch-countdown" className="tslnBtn">
+              Launching Soon
             </Link>
 
-            <Link
-              href="/launch-countdown"
-              className="tslnBtn ghost"
-            >
-              Launching Soon
+            <Link href="/contact" className="tslnBtn ghost">
+              Contact Us
             </Link>
           </div>
         </div>

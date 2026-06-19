@@ -42,7 +42,7 @@ export default function HeroPage() {
       <div className="tslnHeroSearchOverlay" />
         <div className="tslnHeroSearchContent">
           <h2>
-            For Your Live
+            For Your Next Live
             </h2>
             <p>
             Discover tickets for any live entertainment events across North America and beyond.

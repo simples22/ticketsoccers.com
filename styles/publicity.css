@@ -4,7 +4,7 @@
 
 .tslnPublicity{
   width:100%;
-  padding:3rem var(--container-padding);
+  padding:1rem var(--container-padding);
 }
 
 .tslnPublicityInner{
@@ -140,7 +140,7 @@
 .tslnPublicityWords{
   position:relative;
   z-index:2;
-  min-height:4.25rem;
+  min-height:3.25rem;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -280,21 +280,23 @@
 @media(max-width:768px){
 
   .tslnPublicity{
-    padding:2rem 1rem;
+    padding:1rem 1rem;
   }
 
   .tslnPublicityInner{
-    min-height:20rem;
+    min-height:15rem;
     padding:0;
   }
 
   .tslnPublicityWords{
-    min-height:3rem;
-    font-size:clamp(2rem, 12vw, 3.25rem);
+    min-height:1rem;
+    margin-bottom: 0;
+    font-size:clamp(1.6rem, 12vw, 2.65rem);
   }
 
   .tslnPublicityMessage p{
     font-size:var(--text-md);
+    margin-top: 0;
   }
 
   .tslnPublicityPowered{

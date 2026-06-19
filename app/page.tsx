@@ -6,7 +6,6 @@ import ChronoPageBtn from "@/components/public/ChronoPageBtn";
 import SponsoredGrid from "@/components/public/SponsoredGrid";
 import UiTitle from "@/components/ui/UiTitle";
 import HomeFaqs from "@/components/public/faqs/HomeFaqs";
-import HeaderScrollSeparator from "@/components/public/HeaderScrollSeparator";
 import CategorySection from "@/components/public/categories/CategorySection";
 import TrustGrid from "@/components/public/TrustGrid";
 import Publicity from "@/components/public/Publicity";
@@ -24,9 +23,6 @@ export default function Home() {
 
           <main className="tslnComingPage">
             
-
-                    
-                    
                     {/*<section className="tslnSuggestedAction">
                         <div className="tslnSuggestedActionInner">
                           <div className="tslnSectionHeader">
@@ -49,10 +45,8 @@ export default function Home() {
                           </div>
                         </div>
                       </section> 
-
-
-                      <UiImageMasonryGrid />
                           */}
+
                      <Publicity />
 
                    <SponsoredGrid />
@@ -61,6 +55,7 @@ export default function Home() {
                  {/*
               <HomeFaqs />
               */}
+              <ChronoPageBtn />
             
     </main>
     </>

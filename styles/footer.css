@@ -55,7 +55,7 @@
 }
 
 .tslnFooterLogo .tslnBrandText{
-  font-size:var(--text-xl);
+  font-size:var(--text-lg);
   display: block;
   font-weight:var(--font-weight-h1);
   letter-spacing:var(--letter-tight);
@@ -160,7 +160,7 @@
 .tslnFooterBottom{
   width:min(100%, var(--container-max));
   margin-inline:auto;
-  padding:1.5rem var(--container-padding);
+  padding:.5rem var(--container-padding);
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -180,19 +180,18 @@
   align-items:center;
   justify-content:flex-end;
   flex-wrap:wrap;
-  gap:.55rem;
+  gap:1.5rem;
 }
 
 .tslnFooterBottomLinks a{
   color:var(--tsln-blue-dark);
   text-decoration:none;
-  font-weight: var(--font-weight-legal-medium);
+  font-weight: var(--font-weight-medium);
   transition:var(--transition-fast);
 }
 
 .tslnFooterBottomLinks a:hover{
-  color:var(--tsln-blue);
-  text-decoration:underline;
+  color:var(--tsln-muted);
   text-underline-offset:.25rem;
 }
 
@@ -204,7 +203,7 @@
 
   .tslnFooterInner{
     grid-template-columns:1fr;
-    padding:3rem 2rem;
+    padding:2rem 2rem;
     padding-bottom: 1rem;
     gap:2.25rem;
     text-align:center;
@@ -266,11 +265,11 @@
     align-items:center;
     justify-content:center;
     text-align:center;
-    gap:.85rem;
+    gap:1.5rem;
   }
 
   .tslnFooterBottomLinks{
     justify-content:center;
-    gap:.85rem;
+    gap:1.5rem;
   }
 }

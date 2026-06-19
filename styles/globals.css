@@ -7,6 +7,10 @@
   --tsln-blue-hover:#003699;
   --tsln-blue-soft:rgba(0,89,255,.10);
   --tsln-blue-dark:#000000;
+  --tsln-bg-application: linear-gradient(
+      180deg,
+      rgba(86, 117, 201, 0.178)
+    );
 
   --tsln-bg:#ffffff;
   --tsln-bg-muted:#f1f5f9;
@@ -533,7 +537,7 @@ img{
   width:100%;
   z-index: 5;
   top: 0;
-  padding:2rem var(--container-padding);
+  padding:1rem var(--container-padding);
   
 }
 
@@ -547,6 +551,7 @@ img{
 .tslnSearchCategorySection .tslntitlecategorylinks{
   color: var(--tsln-blue-dark);
   font-weight: var(--font-weight-h1);
+  padding-top: 0;
 }
 
 
@@ -772,28 +777,24 @@ img{
 
 
 /* =========================================
-   09. CHRONO PAGE BUTTON
+   09. CHRONO PROMO CARD
 ========================================= */
 
 .tslnChronoWrapper{
   width:100%;
   max-width:var(--container-max);
   margin-inline:auto;
-  padding:0 var(--container-padding);
-  border-radius: var(--radius-sm);
-  margin-block:0rem;
+  padding:2rem var(--container-padding);
 }
 
 .tslnChronoPageBtn{
   position:relative;
-  overflow:hidden;
   width:100%;
-  max-width:var(--container-max);
-  min-height:22rem;
-  margin-inline:auto;
+  min-height:18rem;
+  overflow:hidden;
   border-radius:var(--radius-sm);
-  box-shadow:var(--shadow-md);
-  background:var(--tsln-blue-dark);
+  background:var(--tsln-bg-application);
+  box-shadow:var(--shadow-sm);
 }
 
 .tslnChronoPageBtnBg{
@@ -804,42 +805,71 @@ img{
 
 .tslnChronoPageBtnImg{
   object-fit:cover;
+  object-position:center;
 }
 
 .tslnChronoPageBtnOverlay{
   position:absolute;
   inset:0;
   z-index:1;
-  background:linear-gradient(
-    to top,
-    rgba(0,0,0,.72),
-    rgba(0,0,0,.08)
-  );
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.041)
+    );
 }
 
 .tslnChronoPageBtnContent{
   position:relative;
   z-index:2;
-  min-height:22rem;
-  width:100%;
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  padding:0 2rem 2rem;
+  min-height:18rem;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 12rem;
+  gap:2rem;
+  align-items:center;
+  padding:2rem;
+}
+
+.tslnChronoText{
+  max-width:42rem;
+}
+
+.tslnChronoText h2{
+  margin:0;
+  color:var(--tsln-blue-dark);
+  font-size:clamp(1.4rem,4vw,2rem);
+  font-weight:var(--font-weight-h1);
+  line-height:1.05;
+}
+
+.tslnChronoText p{
+  max-width:34rem;
+  margin:1rem 0 0;
+  color:var(--tsln-text);
+  font-size:var(--text-md);
+  font-weight:var(--font-weight-medium);
+  line-height:var(--lh-normal);
 }
 
 .tslnChronoActions{
-  width:100%;
   display:flex;
   align-items:center;
-  justify-content:center;
-  gap:1rem;
-  flex-wrap:wrap;
+  justify-content:flex-end;
+  gap:.75rem;
+  flex-wrap:nowrap;
+  flex-shrink:0;
 }
 
 .tslnChronoActions .tslnBtn{
   min-width:12rem;
+  min-height:3rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 1rem;
 }
+
+
 
 
 
@@ -854,15 +884,18 @@ img{
   width:100%;
   max-width:var(--container-max);
   margin-inline:auto;
-  padding:4rem var(--container-padding);
+  padding:2rem var(--container-padding);
 }
 
 .tslnSponsoredHead{
-  margin-bottom:2rem;
+  margin-bottom:1rem;
 }
 
 .tslnSponsoredGrid{
   display:grid;
+   border: 1px solid var(--tsln-border);
+   padding: 1rem;
+   border-radius:var(--radius-sm);
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:1rem;
 }
@@ -876,8 +909,7 @@ img{
   overflow:hidden;
   border:1px solid var(--tsln-border);
   border-radius:var(--radius-sm);
-  background:var(--tsln-white);
-  box-shadow:var(--shadow-sm);
+  background:var(--tsln-bg-muted);
   transition:
     transform .25s ease,
     box-shadow .25s ease,
@@ -886,7 +918,7 @@ img{
 
 .tslnSponsoredCard:hover{
   transform:translateY(-1px);
-  border-color:var(--tsln-muted);
+  border-color:var(--tsln-border);
   box-shadow:var(--shadow-md);
 }
 
@@ -1031,25 +1063,29 @@ img{
 
   .tslnHeroSearchTop{
     width:calc(100% - 1rem);
-    min-height:13rem;
+    min-height:16rem;
     margin:0 auto 3rem;
   }
 
   .tslnHeroSearchContent{
-    min-height:13rem;
-    padding:1rem;
+    min-height:7rem;
+    padding:0 1rem;
+   
   }
 
   .tslnHeroSearchContent h2{
     font-size:clamp(1.6rem,8vw,2.2rem);
+     padding-top:.55rem;
   }
 
   .tslnHeroSearchContent p{
     font-size:.95rem;
+    display: block;
+    margin-bottom: 0;
   }
 
 
-    .tslnHeroSearchTop{
+   .tslnHeroSearchTop{
     width:100%;
     padding:0rem;
   }
@@ -1076,7 +1112,11 @@ img{
 
 
   .tslnSearchCategorySection{
-    padding:1.5rem 1rem;
+    padding:0rem 1rem;
+  }
+
+  .tslnSearchCategorySection .tslntitlecategorylinks{
+    padding-top: -1rem;
   }
 
   .tslnSearchCategoryCarousel{
@@ -1093,7 +1133,7 @@ img{
 
 
    .tslnHeroCarousel{
-    padding:1rem;
+    padding: .5rem 1rem;
     width: 100%;
   }
 
@@ -1126,7 +1166,7 @@ img{
   }
 
   .tslnSuggestedAction{
-    padding:2rem 1rem ;
+    padding:1rem 1rem ;
   }
 
   .tslnSuggestedContainer,
@@ -1167,7 +1207,7 @@ img{
   }
 
   .uiImageGrid{
-    padding: 3rem 1rem;
+    padding: 4rem 1rem;
     grid-template-columns:2fr 1fr;
     border-radius: 0;
   }
@@ -1181,42 +1221,54 @@ img{
     height:10rem;
   }
 
-  /* Chrono */
 
-  .tslnChronoWrapper{
-    width:100%;
-    padding:1rem;
-  }
 
-  .tslnChronoPageBtn{
-    width:100%;
-    min-height:18rem;
-    padding:0;
-    border-radius:var(--radius-sm);
-  }
+/* Chrono */
 
-  .tslnChronoPageBtnContent{
-    min-height:18rem;
-    padding:0 1rem 1rem;
-  }
+.tslnChronoWrapper{
+  padding:2rem 1rem;
+}
 
-  .tslnChronoActions{
-    width:100%;
-    flex-direction:column;
-    gap:.75rem;
-  }
+.tslnChronoPageBtnContent{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 10rem;
+  gap:3rem;
+  align-items:center;
+  padding:1.5rem;
+}
 
-  .tslnChronoActions .tslnBtn{
-    width:100%;
-    min-width:0;
-  }
+.tslnChronoText{
+  text-align:center;
+}
+
+.tslnChronoActions{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  justify-content:center;
+  gap:.75rem;
+}
+
+.tslnChronoActions .tslnBtn{
+  width:100%;
+  min-width:0;
+  min-height:3rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.tslnChronoPageBtnMedia{
+  height:13rem;
+}
+
 
 
 
    /* Sponsored */
 
   .tslnSponsored{
-    padding:3rem 1rem;
+    padding:1rem 1rem;
   }
 
   .tslnSponsoredGrid{

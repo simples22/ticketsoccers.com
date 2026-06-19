@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import UiPageLoadingGate from "@/components/ui/UiPageLoadingGate";
 
 import "@/styles/globals.css";
 import "@/styles/contact.css";
@@ -114,7 +115,11 @@ export default function RootLayout({
                 <TopNoticeBar />
                   <Header />
 
-                  <main className="tslnMain">{children}</main>
+                     <main className="tslnMain">
+                        <UiPageLoadingGate delay={7000}>
+                            {children}
+                        </UiPageLoadingGate>
+                    </main>
 
                   <Footer />
               <CookiesNotes />
