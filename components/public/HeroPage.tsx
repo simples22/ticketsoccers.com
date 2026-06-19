@@ -26,32 +26,30 @@ const slides = [
 export default function HeroPage() {
   return (
     <>
-      <div className="tslnHeroSearchTop">
+        <div className="tslnHeroSearchTop">
+          <div className="tslnHeroSearchBg">
+            <PBImage
+              src="/hero/search-banner.jpg"
+              alt="Search Events"
+              fill
+              priority
+              className="tslnHeroSearchBgImg"
+              sizes="100vw"
+            />
+          </div>
 
-    <div className="tslnHeroSearchBg">
-      <PBImage
-        src="/hero/search-banner.jpg"
-        alt="Search Events"
-        fill
-        priority
-        className="tslnHeroSearchBgImg"
-        sizes="100vw"
-    />
-  </div>
-
-      <div className="tslnHeroSearchOverlay" />
-        <div className="tslnHeroSearchContent">
-          <h2>
-            For Your Next Live
-            </h2>
-            <p>
-            Discover tickets for any live entertainment events across North America and beyond.
-          </p>
-        <SearchOverlay />
-      </div>
-    </div>
-
-      <SearchCategoryGrid />
+              <div className="tslnHeroSearchOverlay" />
+                <div className="tslnHeroSearchContent">
+                  <h2>
+                    Find Your Next Live Entertaiment
+                  </h2>
+                <p>
+                Discover tickets for any live entertainment events across North America and beyond.
+              </p>
+              <SearchOverlay />
+            <SearchCategoryGrid />
+          </div>
+        </div>
 
       <section className="tslnHeroCarousel">
         <div className="tslnHeroCarouselTrack">
