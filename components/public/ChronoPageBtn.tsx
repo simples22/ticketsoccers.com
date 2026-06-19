@@ -39,11 +39,11 @@ export default function ChronoPageBtn({
 
           <div className="tslnChronoActions">
             <Link href="/launch-countdown" className="tslnBtn">
-              Launching Soon
+              Launching soon
             </Link>
 
             <Link href="/contact" className="tslnBtn ghost">
-              Contact Us
+              Contact User
             </Link>
           </div>
         </div>

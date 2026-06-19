@@ -1230,31 +1230,48 @@ img{
 }
 
 .tslnChronoPageBtnContent{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) 10rem;
-  gap:3rem;
+  display:flex;
+  flex-direction:column;
   align-items:center;
-  padding:1.5rem;
+  justify-content:center;
+  gap:3rem;
+  padding:1rem;
 }
 
 .tslnChronoText{
+  width:100%;
+  gap: 0;
   text-align:center;
 }
 
+.tslnChronoText h2{
+  font-size:var(--text-lg);
+  padding-bottom: 0;
+}
+
+.tslnChronoText p{
+  font-size:var(--text-xs);
+  padding: 0 1rem;
+}
+
 .tslnChronoActions{
+  width:auto;
   display:flex;
-  flex-direction:column;
-  align-items:stretch;
+  padding: 0;
+  align-items:center;
   justify-content:center;
+  flex-wrap:nowrap;
   gap:.75rem;
 }
 
 .tslnChronoActions .tslnBtn{
-  width:100%;
-  min-width:0;
+  flex:1;
+  min-width:10rem;
   min-height:3rem;
   display:flex;
+  font-size: var(--text-xs);
   align-items:center;
+  background: var(--tsln-blue-dark);
   justify-content:center;
 }
 
