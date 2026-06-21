@@ -3,6 +3,7 @@
 import PBImage from "@/components/ui/PBImage";
 import SearchOverlay from "@/components/public/search/SearchOverlay";
 import SearchCategoryGrid from "./search/SearchCategoryGrid";
+import EventFilterBar from "@/components/public/search/EventFilterBar";
 
 const slides = [
    {
@@ -66,12 +67,9 @@ export default function HeroPage() {
                 className="tslnHeroCarouselImg"
                 sizes="(max-width:768px) 80vw, 48vw"
               />
-
-              <div className="tslnHeroCarouselOverlay" />
-
+                <div className="tslnHeroCarouselOverlay" />
               <div className="tslnHeroCarouselContent">
                 <h1>{slide.title}</h1>
-
                 <span className="tslnHeroCarouselBadge">
                   Live Events
                 </span>
@@ -80,6 +78,7 @@ export default function HeroPage() {
           ))}
         </div>
       </section>
+      <EventFilterBar />
     </>
   );
 }

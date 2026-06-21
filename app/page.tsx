@@ -7,6 +7,7 @@ import TrustGrid from "@/components/public/TrustGrid";
 import Publicity from "@/components/public/Publicity";
 import UiImageMasonryGrid from "@/components/ui/UiImageMasonryGrid";
 import UiSectionLoader from "@/components/ui/UiSectionLoader";
+import EventFilterBar from "@/components/public/search/EventFilterBar";
 
 export default function Home() {
   return (
