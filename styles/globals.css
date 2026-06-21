@@ -11,6 +11,10 @@
       180deg,
       rgba(86, 117, 201, 0.178)
     );
+  --tsln-bg-carousel-btn: linear-gradient(
+      180deg,
+      rgba(86, 117, 201, 0.116)
+    );
 
   --tsln-bg:#ffffff;
   --tsln-bg-muted:#f1f5f9;
@@ -490,7 +494,7 @@ img{
   border-radius:var(--radius-full);
   background:var(--tsln-white);
   color:var(--tsln-text);
-  box-shadow:var(--shadow-sm);
+  box-shadow:var(--shadow-md);
   cursor:pointer;
   transition:
     transform .25s ease,
@@ -579,9 +583,9 @@ img{
   align-items:center;
   justify-content:center;
   padding:0 1.25rem;
-  border:1px solid var(--tsln-border);
+  border:1px solid var(--tsln-text);
   border-radius:var(--radius-full);
-  background:var(--tsln-white);
+  background:var(--tsln-bg-carousel-btn);
   box-shadow:var(--shadow-lg);
   color:var(--tsln-blue-dark);
   font-size:var(--text-sm);
