@@ -1,0 +1,209 @@
+﻿.tslnEventPage{ width:100%, 3rem; padding: var(--container-padding); margin-top: 0rem;}
+
+/* HERO = event media */
+.tslnEventHero{ position:relative; width:min(100%, var(--container-max)); margin:1rem auto 0; min-height:15rem; overflow:hidden; border-radius:var(--radius-sm); background:var(--tsln-blue-dark); }
+.tslnEventHeroImg{ object-fit:cover; object-position:center; }
+.tslnEventHeroOverlay{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.72)); }
+.tslnEventHeroContent{ position:absolute; left:2rem; right:2rem; bottom:2rem; z-index:2; color:var(--tsln-white); }
+.tslnEventHeroContent h1{ margin:0; color:var(--tsln-white); font-size:var(--text-xl); font-weight:var(--font-weight-h1); line-height:1.05; }
+.tslnEventHeroMeta{ margin-top:.6rem; display:flex; gap:1.25rem; flex-wrap:wrap; color:rgba(255,255,255,.88); font-size:var(--text-sm); font-weight:var(--font-weight-medium); }
+.tslnEventSlugSection{ width:min(100%, var(--container-max)); margin-inline:auto; padding:1.5rem var(--container-padding); }
+.tslnEventSlugSection h2{ margin:0 0 1rem; color:var(--tsln-blue-dark); font-size:var(--text-lg); font-weight:var(--font-weight-h1); }
+
+/* TICKET FILTER BAR (reuses tslnEventFilterBtn) */
+.tslnTicketFilterBar{ display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; justify-content:flex-start; margin-bottom:1rem; }
+.tslnTicketFilterMobile{ display:none; }
+
+@media(max-width:768px){
+  .tslnTicketFilterBar .tslnEventFilterBtn{ display:none; }
+  .tslnTicketFilterMobile{ display:inline-flex; }
+}
+
+/* TICKET ROW */
+.tslnTicketRow{ display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.25rem; border:1px solid var(--tsln-border); border-radius:var(--radius-sm); background:var(--tsln-white); margin-bottom:.75rem; transition:var(--transition-fast); }
+.tslnTicketRow:hover{ border-color:var(--tsln-blue); box-shadow:var(--shadow-xs);  background: var(--tsln-border);}
+.tslnTicketInfo h4{ margin:0; color:var(--tsln-blue-dark); font-size:var(--text-md); font-weight:var(--font-weight-title); }
+.tslnTicketInfo p{ margin:.2rem 0 0; color:var(--tsln-muted); font-size:var(--text-xs); }
+.tslnTicketRight{ display:flex; align-items:center; gap:1rem; flex-shrink:0; }
+.tslnTicketPrice{ color:var(--tsln-blue); font-size:var(--text-lg); font-weight:var(--font-weight-h1); }
+.tslnTicketBuy{ min-height:2.6rem; padding:0 1.1rem; border:1px solid var(--tsln-blue); border-radius:var(--radius-sm); background:var(--tsln-blue); color:var(--tsln-white); font-weight:var(--font-weight-title); cursor:pointer; }
+.tslnTicketBuy:hover{ background:var(--tsln-blue-hover); }
+.tslnTicketEmpty{ color:var(--tsln-muted); padding:1rem; }
+
+/* ABOUT */
+.tslnEventAbout p{ margin:0; color:var(--tsln-blue-dark); font-size:var(--text-md); font-weight:var(--font-weight-medium); line-height:var(--lh-normal); }
+
+@media(max-width:768px){
+  .tslnEventHero{ margin-top:0; border-radius:var(--radius-sm); min-height:16rem; }
+  .tslnEventHeroContent{ left:1rem; right:.5rem; bottom:2.25rem; }
+  .tslnTicketRow{ flex-direction:column; align-items:flex-start; }
+  .tslnTicketRight{ width:100%; justify-content:space-between; }
+  .tslnTicketEmpty{ color:var(--tsln-muted); padding:1rem; }
+}
+
+/* ROOT container padding on slug page */
+.tslnEventPage{ width:100%; }
+.tslnEventHero,
+.tslnEventSlugSection{ width:min(100%, var(--container-max)); margin-inline:auto; padding-inline:var(--container-padding);}
+.tslnEventHero{ box-sizing:border-box; }
+
+@media(max-width:768px){
+  .tslnEventHero,
+  .tslnEventSlugSection{ padding-inline:var(--container-padding); }
+}
+
+/* SEAT SELECTION */
+/* EventFilterBar - location agreement panel (was unstyled) */
+.tslnLocationAgreementBackdrop{ position:fixed; inset:0; z-index:9999; border:0; background:rgba(0,0,0,.35); backdrop-filter:blur(4px); }
+.tslnLocationAgreementPanel{ position:fixed; left:50%; bottom:1rem; transform:translateX(-50%); z-index:10000; width:min(92vw,32rem); padding:1.5rem; border:1px solid var(--tsln-border); border-radius:var(--radius-sm); background:var(--tsln-white); box-shadow:var(--shadow-md); }
+.tslnLocationAgreementPanel h3{ margin:0 0 .75rem; color:var(--tsln-blue-dark); font-size:var(--text-lg); font-weight:var(--font-weight-h1); }
+.tslnLocationAgreementPanel p{ margin:0 0 1.25rem; color:var(--tsln-muted); font-size:var(--text-sm); line-height:1.6; }
+.tslnLocationAgreementActions{ display:flex; gap:.75rem; }
+.tslnLocationAgreementActions button{ flex:1; min-height:3rem; border-radius:var(--radius-sm); font-weight:var(--font-weight-title); cursor:pointer; }
+.tslnLocationAgreementActions button:first-child{ border:1px solid var(--tsln-border); background:var(--tsln-white); color:var(--tsln-blue-dark); }
+.tslnLocationAgreementActions button:last-child{ border:1px solid var(--tsln-blue); background:var(--tsln-blue); color:var(--tsln-white); }
+
+/* Make the filter bar visible & usable on mobile too */
+@media(max-width:768px){
+  .tslnEventFilterBar{ justify-content:flex-start; flex-wrap:wrap; }
+  .tslnEventFilterBtn{ flex:1 1 auto; }
+}
+
+/* SLUG LAYOUT: listing 65 / about 35 */
+.tslnEventLayout{ width:min(100%, var(--container-max)); margin-inline:auto; padding:1.5rem 0; display:grid; grid-template-columns:minmax(0,60fr) minmax(0,40fr); gap:2rem; align-items:start; }
+.tslnEventLayout > h2{ grid-column:1 / -1; margin:0; color:var(--tsln-blue-dark); font-size:var(--text-lg); font-weight:var(--font-weight-h1); }
+.tslnEventAboutCol{ position:sticky; top:6rem; }
+.tslnEventAboutCol h2{ margin:0 0 .75rem; color:var(--tsln-blue-dark); font-size:var(--text-lg); font-weight:var(--font-weight-h1); }
+.tslnEventAboutCol p{ margin:0; color:var(--tsln-blue-dark); font-size:var(--text-sm); font-weight:var(--font-weight-medium); line-height:var(--lh-normal); }
+@media(max-width:1024px){
+  .tslnEventLayout{ grid-template-columns:1fr; gap:1.5rem; }
+  .tslnEventAboutCol{ position:static; }
+}
+
+/* TICKET LIST CARD (clickable -> seatmap) */
+.tslnListGrid{ display:flex; flex-direction:column; gap:.75rem; }
+.tslnListCard{ width:100%; display:flex; align-items:center; gap:1rem; padding:.25rem .25rem; border:1px solid var(--tsln-border); border-radius:var(--radius-sm); background:var(--tsln-white); text-align:left; cursor:pointer; transition:var(--transition-fast); }
+.tslnListCard:hover{ border-color:var(--tsln-border); box-shadow:var(--shadow-xs); transform:translateY(-1px); }
+.tslnListBadge{ flex-shrink:0; width:2.95rem; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:.4rem 0; border-radius:var(--radius-sm); background:var(--tsln-blue); color:var(--tsln-white); }
+.tslnListBadge small{ font-size:var(--text-lg); font-weight:var(--font-weight-h1); line-height:2; }
+.tslnListBadge strong{ font-size:var(--radius-md); font-weight:var(--font-weight-title); letter-spacing:.06em; }
+.tslnListBody{ flex:1; min-width:0; display:flex; flex-direction:column; gap:.2rem; }
+.tslnListTitle{ color:var(--tsln-blue-dark); font-size:var(--text-xs); font-weight:var(--font-weight-title); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.tslnListMeta{ color:var(--tsln-muted); font-size:var(--text-sm); font-weight:var(--font-weight-medium); }
+.tslnListVenue{ color:var(--tsln-blue-dark); font-size:var(--text-sm); font-weight:var(--font-weight-medium); }
+.tslnListPrice{ flex-shrink:0; display:flex; flex-direction:column; align-items:flex-end; padding: .25rem;}
+.tslnListPrice small{ color:var(--tsln-muted); font-size:var(--text-md); }
+.tslnListPrice strong{ color:var(--tsln-blue-dark); font-size:var(--text-sm); font-weight:var(--font-weight-h1); }
+
+/* PAGINATION */
+.tslnPager{ display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:.4rem; margin-top:1.5rem; }
+.tslnPager button{ min-width:2.5rem; min-height:2.5rem; padding:0 .6rem; border:1px solid var(--tsln-border); border-radius:var(--radius-sm); background:var(--tsln-white); color:var(--tsln-blue-dark); font-weight:var(--font-weight-title); cursor:pointer; transition:var(--transition-fast); }
+.tslnPager button:hover:not(:disabled){ border-color:var(--tsln-blue); color:var(--tsln-blue); }
+.tslnPager button.active{ background:var(--tsln-blue); color:var(--tsln-white); border-color:var(--tsln-blue); }
+.tslnPager button:disabled{ opacity:.45; cursor:not-allowed; }
+
+/* ===== SEATS PAGE ===== */
+html.tslnSeatModeOn .tslnHeader,
+html.tslnSeatModeOn .tslnHeaderSeparator{ display:none !important; }
+
+/* hero card: image left, info middle, actions right */
+/* body: map left, selection right */
+
+@media(max-width:768px){
+
+         /* mobile: filter + seats buttons between map and selection */
+  .tslnSeatQtyInline{ display:none; }        /* hide inline qty on mobile, use overlay */
+}
+
+/* ===== SEAT HERO v2 (compact: badge / info / actions) ===== */
+/* Seatmap mount sizing */
+/* ===== SEAT HERO v3: image square + (title row with buttons) ===== */
+/* title and action buttons on the SAME line */
+/* ===== QUANTITY CHIPS (Choose seats) - refined ===== */
+.tslnQtyGrid{ display:flex; flex-wrap:wrap; gap:.6rem; margin-bottom:1.25rem; }
+.tslnQtyChip{ flex:0 0 auto; min-width:3.5rem; min-height:3.5rem; display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--tsln-border); border-radius:var(--radius-sm); background:var(--tsln-white); color:var(--tsln-blue-dark); font-size:var(--text-md); font-weight:var(--font-weight-h1); cursor:pointer; transition:var(--transition-fast); }
+.tslnQtyChip:hover{ border-color:var(--tsln-blue); color:var(--tsln-blue); }
+.tslnQtyChip.active{ background:var(--tsln-blue); color:var(--tsln-white); border-color:var(--tsln-blue); }
+
+@media(max-width:768px){
+  .tslnQtyGrid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:.5rem; }
+  .tslnQtyChip{ min-width:0; width:100%; min-height:3.25rem; }
+}
+
+/* ===== MOBILE: only filter buttons visible, inline qty hidden ===== */
+/* ===== SEAT HERO: identical layout on desktop AND mobile ===== */
+/* ===== SEAT FILTER ZONE (2 lines) ===== */
+/* X close (mobile only) */
+/* ===== MOBILE: fixed seatmap 40vh + filter 10vh + scrollable rows 50vh ===== */
+/* desktop: rows scroll naturally, no fixed heights */
+/* ===== SEAT FILTER ZONE (2 lines) ===== */
+/* X close (mobile only) */
+/* ===== MOBILE: fixed seatmap 40vh + filter 10vh + scrollable rows 50vh ===== */
+/* desktop: rows scroll naturally, no fixed heights */
+
+/* ===== UI FILTER UNIVERSEL (seatmap page) ===== */
+.tslnUniFilterBar{ display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; }
+.tslnUniFilterMobile{ display:none; }
+
+.tslnFilterField{ margin-bottom:1.25rem; }
+.tslnFilterField > label{ display:block; margin-bottom:.6rem; color:var(--tsln-blue-dark); font-size:var(--text-sm); font-weight:var(--font-weight-title); }
+.tslnFilterField input{ width:100%; min-height:3rem; padding:0 1rem; border:1px solid var(--tsln-border); border-radius:var(--radius-sm); font-size:var(--text-sm) !important; outline:0; }
+.tslnFilterField input:focus{ border-color:var(--tsln-muted); }
+.tslnFilterMuted{ color:var(--tsln-muted); font-size:var(--text-sm); }
+
+.tslnChipWrap{ display:flex; flex-wrap:wrap; gap:.5rem; }
+.tslnFilterChip{ min-height:2.6rem; padding:0 1rem; display:inline-flex; align-items:center; justify-content:center; border:1px solid var(--tsln-border); border-radius:var(--radius-full); background:var(--tsln-white); color:var(--tsln-blue-dark); font-size:var(--text-xs); font-weight:var(--font-weight-title); cursor:pointer; transition:var(--transition-fast); white-space:nowrap; }
+.tslnFilterChip:hover{ border-color:var(--tsln-blue); color:var(--tsln-blue); }
+.tslnFilterChip.active{ background:var(--tsln-blue); color:var(--tsln-white); border-color:var(--tsln-blue); }
+
+@media(max-width:768px){
+  .tslnUniFilterBar{ display:none; }      /* hide separate buttons on mobile */
+  .tslnUniFilterMobile{ display:inline-flex; }  /* show single Filters button */
+}
+
+/* ===== UI FILTER UNIVERSEL v2 ===== */
+.tslnUniFilterBar{ display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; }
+.tslnUniFilterMobile{ display:none; }
+.tslnFilterField{ margin-bottom:1.5rem; }
+.tslnFilterField > label{ display:block; margin-bottom:.75rem; color:var(--tsln-blue-dark); font-size:var(--text-sm); font-weight:var(--font-weight-title); }
+.tslnPriceHisto{ display:flex; align-items:flex-end; gap:.18rem; height:4rem; padding:.4rem; border: 0; border-bottom:1px solid var(--tsln-border); border-radius:0; background:var(--tsln-bg-muted); margin-bottom:.85rem; }
+.tslnPriceBar{ flex:1; width:.25rem; min-width:.25rem; background:var(--tsln-blue); border-radius:var(--radius-xs) var(--radius-xs) 0 0; opacity:.55; transition:opacity .2s ease; }
+.tslnPriceHisto:hover .tslnPriceBar{ opacity:.85; }
+.tslnPriceInputs{ display:flex; gap:.75rem;}
+.tslnPriceInput{ flex:1; display:flex; flex-direction:column; gap:.3rem; }
+.tslnPriceInput span{ color:var(--tsln-muted); font-size:var(--text-xs); font-weight:var(--font-weight-title); }
+.tslnPriceInput input{ width:100%; min-height:3rem; padding:0 1rem; border: 0; border-bottom:1px solid var(--tsln-border); border-radius:0; font-size:16px; outline:0; }
+.tslnPriceInput input:focus{ border-color:var(--tsln-blue); }
+.tslnQtyMatrix{ display:grid; grid-template-columns:repeat(5, 1fr); gap:.5rem; }
+.tslnQtyMatrix .tslnQtyChip{ min-width:0; width:100%; min-height:3.25rem; }
+.tslnFilterRows{ display:flex; flex-direction:column; gap:.5rem; }
+.tslnFilterRowItem{ width:100%; display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:3rem; padding:0 1rem; border:0; border-radius:0; background:var(--tsln-white); color:var(--tsln-blue-dark); font-size:var(--text-sm); font-weight:var(--font-weight-medium); cursor:pointer; transition:var(--transition-fast); text-align:left; }
+.tslnFilterRowItem:hover{ border-color:var(--tsln-blue); }
+.tslnFilterRowItem.active{ border-color:var(--tsln-blue); background:var(--tsln-bg-muted); }
+.tslnFilterCheck{ flex-shrink:0; width:1.5rem; height:1.5rem; display:flex; align-items:center; justify-content:center; border:1px solid var(--tsln-border); border-radius:var(--radius-xs); background:var(--tsln-white); color:var(--tsln-white); font-size:.9rem; font-weight:var(--font-weight-h1); }
+.tslnFilterRowItem.active .tslnFilterCheck{ background:var(--tsln-blue); border-color:var(--tsln-blue); }
+.tslnFilterMuted{ color:var(--tsln-muted); font-size:var(--text-sm); }
+@media(max-width:768px){
+  .tslnUniFilterBar{ display:none; }
+  .tslnUniFilterMobile{ display:inline-flex; }
+}
+
+@media(min-width:769px){
+  /* desktop: the 4 filter buttons sit on one tidy row, right-aligned */
+  
+}
+
+@media(min-width:769px){
+  /* desktop: the 4 filter buttons sit on one tidy row, right-aligned */
+  
+}
+
+/* =========================================
+   SEAT BODY + FILTER ZONE — single canonical source
+========================================= */
+
+/* DESKTOP: map left, selection right (flex) */
+/* filter zone */
+/* MOBILE: column layout */
+
+

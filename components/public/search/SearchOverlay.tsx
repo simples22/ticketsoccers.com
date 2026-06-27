@@ -1,204 +1,148 @@
 ﻿"use client";
 
-import type { FormEvent, ReactNode } from "react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { useRouter } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faMagnifyingGlass,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faXmark } from "@fortawesome/free-solid-svg-icons";
 
-type SearchOverlayProps = {
+const TEAMS = [
+  "Inter Miami CF","LA Galaxy","LAFC","Atlanta United","Seattle Sounders","Portland Timbers","NYCFC","New York Red Bulls","Austin FC","FC Cincinnati",
+  "Los Angeles Lakers","Golden State Warriors","Boston Celtics","Miami Heat","New York Knicks","Chicago Bulls","Milwaukee Bucks","Denver Nuggets","Phoenix Suns","Dallas Mavericks",
+  "Kansas City Chiefs","Dallas Cowboys","San Francisco 49ers","Philadelphia Eagles","Buffalo Bills","Green Bay Packers","Miami Dolphins","New England Patriots","Detroit Lions","Baltimore Ravens",
+  "New York Yankees","Los Angeles Dodgers","Boston Red Sox","Chicago Cubs","Atlanta Braves","Houston Astros","New York Mets","Philadelphia Phillies","San Francisco Giants","St. Louis Cardinals",
+  "Boston Bruins","Toronto Maple Leafs","New York Rangers","Chicago Blackhawks","Detroit Red Wings","Pittsburgh Penguins","Tampa Bay Lightning","Vegas Golden Knights","Colorado Avalanche","Edmonton Oilers",
+];
+
+type Props = {
+  variant?: "icon" | "bar";
   className?: string;
-  onOpen?: () => void;
-  variant?: "bar" | "icon";
-  icon?: ReactNode;
-  label?: string;
   defaultKeyword?: string;
+  label?: string;
+  onOpen?: () => void;
+  onClose?: () => void;
 };
 
-function buildTicketNetworkUrl(query: string) {
-  const cleanQuery = query.trim();
-
-  const ticketNetworkUrl = `https://www.ticketnetwork.com/search?q=${encodeURIComponent(
-    cleanQuery
-  )}&utm_source=CJ+Affiliate&utm_medium=Widget`;
-
-  return `https://www.tkqlhce.com/click-8873531-10796449?sid=72bd3ba93dc54c89a93365ea2-664478&url=${encodeURIComponent(
-    ticketNetworkUrl
-  )}`;
-}
-
 export default function SearchOverlay({
-  className = "",
-  onOpen,
-  variant = "bar",
-  icon,
-  label = "Search by artist, team, event, venue...",
-  defaultKeyword = "",
-}: SearchOverlayProps) {
+  variant = "icon", className = "", defaultKeyword = "", label, onOpen, onClose,
+}: Props) {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
-  const [searchValue, setSearchValue] = useState(defaultKeyword);
-  const [mounted, setMounted] = useState(false);
-  const scrollYRef = useRef(0);
+  const [q, setQ] = useState("");
+  const wrapRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    setSearchValue(defaultKeyword);
-  }, [defaultKeyword]);
+  function openSearch() { setQ(defaultKeyword || ""); setOpen(true); onOpen?.(); if (variant === "bar") document.documentElement.classList.add("tslnSearchOpen"); }
+  function closeSearch() { setOpen(false); onClose?.(); document.documentElement.classList.remove("tslnSearchOpen"); }
 
   useEffect(() => {
     if (!open) return;
-
-    scrollYRef.current = window.scrollY;
-
-    document.documentElement.classList.add("tslnNoScroll");
-    document.body.classList.add("tslnNoScroll");
-    document.body.classList.add("tslnSearchOpen");
-
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${scrollYRef.current}px`;
-    document.body.style.left = "0";
-    document.body.style.right = "0";
-    document.body.style.width = "100%";
-
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
-    };
-
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") closeSearch(); };
     window.addEventListener("keydown", onKey);
-
+    // for bar variant: close on outside click; for icon variant: lock body scroll
+    let prev = "";
+    if (variant === "icon") { prev = document.body.style.overflow; document.body.style.overflow = "hidden"; }
+    const onClick = (e: MouseEvent) => {
+      if (variant === "bar" && wrapRef.current && !wrapRef.current.contains(e.target as Node)) closeSearch();
+    };
+    document.addEventListener("mousedown", onClick);
     return () => {
       window.removeEventListener("keydown", onKey);
-
-      document.documentElement.classList.remove("tslnNoScroll");
-      document.body.classList.remove("tslnNoScroll");
-      document.body.classList.remove("tslnSearchOpen");
-
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
-      document.body.style.width = "";
-
-      window.scrollTo(0, scrollYRef.current);
+      document.removeEventListener("mousedown", onClick);
+      if (variant === "icon") document.body.style.overflow = prev;
     };
-  }, [open]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open, variant]);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  const results = useMemo(() => {
+    const term = q.trim().toLowerCase();
+    if (!term) return TEAMS.slice(0, 50);
+    return TEAMS.filter((t) => t.toLowerCase().includes(term)).slice(0, 50);
+  }, [q]);
 
-    const cleanQuery = searchValue.trim();
+  function go(term: string) { closeSearch(); router.push(`/explore?q=${encodeURIComponent(term)}`); }
 
-    if (!cleanQuery) return;
+  const list = (
+    <>
+      <p className="tslnSearchLabel">{q ? "Results" : "Popular teams"}</p>
+      {results.length === 0 ? (
+        <p className="tslnSearchEmpty">No teams found.</p>
+      ) : (
+        <ul className="tslnSearchList">
+          {results.map((t) => (
+            <li key={t}>
+              <button type="button" onClick={() => go(t)}>
+                <span className="tslnSearchTeamIcon"><FontAwesomeIcon icon={faMagnifyingGlass} /></span>
+                <span>{t}</span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </>
+  );
 
-    window.open(buildTicketNetworkUrl(cleanQuery), "_blank", "noopener,noreferrer");
+  // ===== BAR variant: inline expanding dropdown, glued to the bar =====
+  if (variant === "bar") {
+    return (
+      <div className={`tslnSearchBarWrap ${open ? "is-open" : ""} ${className}`} ref={wrapRef}>
+        {!open ? (
+          <button type="button" className="tslnSearchBar" onClick={openSearch} aria-label="Search">
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+            <span>{label || "Search by team, events, cities..."}</span>
+          </button>
+        ) : (
+          <div className="tslnSearchBarActive">
+            <FontAwesomeIcon icon={faMagnifyingGlass} className="tslnSearchInputIcon" />
+            <input
+              autoFocus type="text" value={q}
+              onChange={(e) => setQ(e.target.value)}
+              placeholder={label || "Search by team, events, cities..."}
+              onKeyDown={(e) => { if (e.key === "Enter" && q.trim()) go(q.trim()); }}
+            />
+            <button type="button" className="tslnSearchInlineClose" onClick={closeSearch} aria-label="Close">
+              <FontAwesomeIcon icon={faXmark} />
+            </button>
+          </div>
+        )}
+
+        {open && (
+          <div className="tslnSearchDropdown">{list}</div>
+        )}
+      </div>
+    );
   }
 
-  const handleOpen = () => {
-    onOpen?.();
-
-    window.setTimeout(() => {
-      setOpen(true);
-    }, 120);
-  };
-
-  const overlay = open ? (
-    <div
-      className="tslnSearchOverlay"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Search events"
-    >
-      <button
-        type="button"
-        className="tslnSearchBackdrop"
-        onClick={() => setOpen(false)}
-        aria-label="Close search"
-      />
-
-      <div className="tslnSearchModal">
-        <div className="tslnSearchTop">
-          <div>
-            <h2>Find your next event</h2>
-
-            {defaultKeyword ? (
-              <p>
-                Searching for: <strong>{defaultKeyword}</strong>
-              </p>
-            ) : null}
-          </div>
-
-          <button
-            type="button"
-            className="tslnSearchClose"
-            onClick={() => setOpen(false)}
-            aria-label="Close"
-          >
-            <FontAwesomeIcon icon={faXmark} />
-          </button>
-        </div>
-
-        <div className="tslnSearchBody">
-          <section className="tslnSearchBlock" aria-label="Search form">
-            <form className="tslnTNWidget" onSubmit={handleSubmit}>
-              <h3>Find my next Event</h3>
-
-              <div className="tslnTNWidgetSearch">
-                <input
-                  type="text"
-                  value={searchValue}
-                  onChange={(event) => setSearchValue(event.target.value)}
-                  placeholder="Search by artist, team, event, and more..."
-                  autoFocus
-                />
-
-                <button type="submit" aria-label="Search TicketNetwork">
-                  <FontAwesomeIcon icon={faMagnifyingGlass} />
-                </button>
-              </div>
-
-              <p className="tslnTNWidgetPowered">
-                Powered by <strong>TicketNetwork</strong>
-              </p>
-            </form>
-          </section>
-        </div>
-      </div>
-    </div>
-  ) : null;
-
+  // ===== ICON variant (header): full modal =====
   return (
     <>
-      {variant === "icon" ? (
-        <button
-          type="button"
-          className={`tslnSearchIconBtn ${className}`}
-          onClick={handleOpen}
-          aria-label="Search events"
-        >
-          {icon ?? <FontAwesomeIcon icon={faMagnifyingGlass} />}
-        </button>
-      ) : (
-        <button
-          type="button"
-          className={`tslnSearchBarBtn ${className}`}
-          onClick={handleOpen}
-          aria-label="Search events"
-        >
-          <span className="tslnSearchBarIcon" aria-hidden="true">
-            {icon ?? <FontAwesomeIcon icon={faMagnifyingGlass} />}
-          </span>
+      <button type="button" className={`tslnSearchTrigger ${className}`} onClick={openSearch} aria-label={label || "Search"}>
+        <FontAwesomeIcon icon={faMagnifyingGlass} />
+      </button>
 
-          <span className="tslnSearchBarText">{label}</span>
-        </button>
+      {open && typeof document !== "undefined" && createPortal(
+        <div className="tslnSearchModalRoot" role="dialog" aria-modal="true">
+          <button type="button" className="tslnSearchBackdrop" onClick={closeSearch} aria-label="Close" />
+          <div className="tslnSearchModal">
+            <div className="tslnSearchModalHead">
+              <div className="tslnSearchInputWrap">
+                <FontAwesomeIcon icon={faMagnifyingGlass} className="tslnSearchInputIcon" />
+                <input autoFocus type="text" value={q}
+                  onChange={(e) => setQ(e.target.value)}
+                  placeholder={label || "Search by team, events, cities..."}
+                  onKeyDown={(e) => { if (e.key === "Enter" && q.trim()) go(q.trim()); }} />
+              </div>
+              <button type="button" className="tslnSearchCancel" onClick={closeSearch} aria-label="Close">
+                <FontAwesomeIcon icon={faXmark} />
+              </button>
+            </div>
+            <div className="tslnSearchResults">{list}</div>
+          </div>
+        </div>,
+        document.body
       )}
-
-      {mounted && overlay ? createPortal(overlay, document.body) : null}
     </>
   );
 }
+
+
+

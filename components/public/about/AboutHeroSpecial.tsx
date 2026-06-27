@@ -46,7 +46,7 @@ export default function AboutHeroSpecial({
   return (
     <section className="tslnAboutHeroSpecial">
       <div className="tslnAboutHeroSpecialHeader">
-        <h1>For Fans By Fans</h1>
+        <h1>Who We Are for Fans</h1>
 
         <p>
           Get for unforgettable event experiences.

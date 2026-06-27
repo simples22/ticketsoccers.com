@@ -191,3 +191,59 @@
     display:none;
   }
 }
+
+
+
+/* =========================================
+   APPLE STYLE SKELETON
+========================================= */
+
+.tslnSkeletonLine,
+.tslnSkeletonPrice{
+  display:block;
+  border-radius:var(--radius-sm);
+  background:linear-gradient(
+    90deg,
+    var(--tsln-bg-muted) 0%,
+    #e5e7eb 45%,
+    var(--tsln-bg-muted) 100%
+  );
+  background-size:200% 100%;
+  animation:tslnSkeletonMove 1.25s ease-in-out infinite;
+}
+
+.tslnSkeletonLine{
+  height:.85rem;
+  margin-bottom:.65rem;
+}
+
+.tslnSkeletonLine.wide{
+  width:12rem;
+}
+
+.tslnSkeletonLine.medium{
+  width:8rem;
+}
+
+.tslnSkeletonLine.small{
+  width:5rem;
+}
+
+.tslnSkeletonPrice{
+  width:5rem;
+  height:2.25rem;
+}
+
+.tslnTicketCardSkeleton{
+  pointer-events:none;
+}
+
+@keyframes tslnSkeletonMove{
+  0%{
+    background-position:200% 0;
+  }
+
+  100%{
+    background-position:-200% 0;
+  }
+}

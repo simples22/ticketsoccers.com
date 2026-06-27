@@ -1,0 +1,33 @@
+import { tevo } from "@/lib/tevo/client";
+import { normalizeEvent, minPriceOf } from "@/lib/tevo/normalize";
+import EventCard from "@/components/public/events/EventCard";
+import UiTitle from "@/components/ui/UiTitle";
+
+export default async function PopularEvents() {
+  const { events } = await tevo.listEvents({ per_page: 12 });
+  const list = await Promise.all(
+    events.map(async (e) => {
+      try {
+        const g = await tevo.listTicketGroups(e.id);
+        return normalizeEvent(e, minPriceOf(g.ticket_groups));
+      } catch {
+        return normalizeEvent(e);
+      }
+    })
+  );
+  return (
+    <section className="tslnEventSection">
+      <div className="tslnEventSectionHead">
+        
+        <UiTitle>
+          Popular events
+        </UiTitle>
+      </div>
+      <div className="tslnEventGrid">
+        {list.map((event) => (
+          <EventCard key={event.id} event={event} />
+        ))}
+      </div>
+    </section>
+  );
+}

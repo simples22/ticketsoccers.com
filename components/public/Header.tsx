@@ -75,20 +75,20 @@ export default function Header() {
             ) : null}
 
             <nav className="tslnHeaderNav" aria-label="Primary navigation">
-                <Link href="/about" className="tslnHeaderLink">
-                About
-                </Link>
-
-                <Link href="/help-and-faqs" className="tslnHeaderLink">
-                Help Center
-                </Link>
-
-                <Link href="/contact" className="tslnHeaderLink">
-                Contact
-                </Link>
-
-                <Link href="/launch-countdown" className="tslnHeaderLinkbtn">
-                Next Launch
+              <Link href="/explore" className="tslnHeaderLink">
+                  Explore
+                    </Link>
+                      <Link href="/about" className="tslnHeaderLink">
+                        About
+                        </Link>
+                          <Link href="/help-and-faqs" className="tslnHeaderLink">
+                            Help Center
+                          </Link>
+                        <Link href="/contact" className="tslnHeaderLink">
+                        Contact
+                      </Link>
+                    <Link href="/launch-countdown" className="tslnHeaderLinkbtn">
+                  Next Launch
                 </Link>
             </nav>
         </div>
@@ -142,22 +142,20 @@ export default function Header() {
           </Link>
 
           <Link href="/about" className="tslnMobileLink" onClick={closeMenu}>
-            About
-          </Link>
+             About
+                </Link>
 
-        <Link href="/help-and-faqs" className="tslnMobileLink" onClick={closeMenu}>
-            Help Center
+                <Link href="/help-and-faqs" className="tslnMobileLink" onClick={closeMenu}>
+             Help Center
           </Link>
           
           <Link
             href="/launch-countdown"
             className="tslnMobileLink"
             onClick={closeMenu}
-          >
-            Launch Countdown
-          </Link>
-
-
+              >
+                Launch Countdown
+                    </Link>
           <Link
             href="/privacy-policy"
             className="tslnMobileLink"
@@ -168,15 +166,18 @@ export default function Header() {
 
           <Link
             href="/terms-of-use"
-            className="tslnMobileLink"
-            onClick={closeMenu}
-          >
+                className="tslnMobileLink"
+                    onClick={closeMenu}
+                  >
             Terms of Use
-          </Link>
+                </Link>
+                    <Link href="/contact" className="tslnMobileLink" onClick={closeMenu}>
+                     Contact Us
+                  </Link>
 
-          <Link href="/contact" className="tslnMobileLink" onClick={closeMenu}>
-            Contact Us
-          </Link>
+                <Link href="/explore" className="tslnHeaderLink">
+              Explore
+            </Link>
         </nav>
       </div>
     </header>

@@ -1,0 +1,101 @@
+﻿/* CANONICAL TOKENS - load LAST. Overrides duplicate :root from other files. */
+:root{
+  /* brand */
+  --tsln-blue:#0045c5;
+  --tsln-blue-hover:#003699;
+  --tsln-blue-soft:rgba(0,89,255,.10);
+  --tsln-blue-dark:#000000;
+
+  /* surfaces */
+  --tsln-bg:#ffffff;
+  --tsln-bg-muted:#f1f5f9;
+  --tsln-bg-subtle:#f8fafc;
+  --tsln-panel-soft:rgba(255,255,255,.86);
+  --tsln-overlay:rgba(15,23,42,.45);
+  --tsln-scrim:rgba(0,0,0,.06);
+
+  /* text */
+  --tsln-text:#111827;
+  --tsln-text-soft:#374151;
+  --tsln-muted:#6b7280;
+  --tsln-muted-light:#9ca3af;
+  --tsln-white:#ffffff;
+  --tsln-white-cookies:#050f1ff1;
+
+  /* lines */
+  --tsln-border:#e5e7eb;
+  --tsln-border-strong:#d1d5db;
+
+  /* states */
+  --tsln-success:#059669;
+  --tsln-success-soft:rgba(5,150,105,.10);
+  --tsln-warning:#d97706;
+  --tsln-warning-soft:rgba(217,119,6,.10);
+  --tsln-danger:#e11d48;
+  --tsln-danger-soft:rgba(225,29,72,.10);
+  --tsln-info:#0284c7;
+
+  /* accents (badges, highlights) */
+  --tsln-gold:#f59e0b;
+  --tsln-live:#16a34a;
+
+  --font-main:"Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-weight-text:300;
+  --font-weight-legal-medium:400;
+  --font-weight-medium:500;
+  --font-weight-title:700;
+  --font-weight-h1:900;
+
+  --text-fine:clamp(.3rem,7vw,.5rem);
+  --text-small:clamp(.4rem,7vw,.65rem);
+  --text-xs:.75rem;
+  --text-sm:.875rem;
+  --text-md:.7rem;
+  --text-lg:1.125rem;
+  --text-xl:clamp(1.5rem,4vw,2rem);
+  --text-xxl:clamp(1.8rem,5vw,2.5rem);
+  --text-hero:clamp(2.6rem,6vw,5.4rem);
+
+  --lh-tight:1.2;
+  --lh-normal:1.55;
+
+  --letter-tight:-.04em;
+  --letter-normal:.01em;
+
+  --container-max:84rem;
+  --container-padding:1rem;
+
+  --radius-xs:.35rem;
+  --radius-sm:.4rem;
+  --radius-md:.75rem;
+  --radius-lg:1rem;
+  --radius-xl:1.5rem;
+  --radius-full:999px;
+
+  --shadow-xs:0 1px 2px rgba(0,0,0,.05);
+  --shadow-sm:0 2px 6px rgba(0,0,0,.06), 0 6px 18px rgba(0,0,0,.08);
+  --shadow-md:0 12px 32px rgba(15,23,42,.10);
+  --shadow-lg:0 18px 40px rgba(15,23,42,.12);
+  --shadow-smd:0 21px 48px rgba(163,167,177,.40);
+
+  --btn-padding:.40rem;
+
+  --transition-fast:.15s ease;
+  --transition-normal:.25s ease;
+}
+
+/* TABLET PALIER (451-768px) - prevents title/grid distortion between desktop and mobile */
+@media (min-width:451px) and (max-width:768px){
+  :root{
+    --container-padding:1.25rem;
+    --text-hero:clamp(2.4rem,7vw,3.4rem);
+    --text-xxl:clamp(1.7rem,5vw,2.1rem);
+    --text-xl:clamp(1.45rem,4vw,1.9rem);
+    --text-lg:clamp(1.3rem,7vw,1.45rem);
+    --text-md:clamp(1.05rem,7vw,1.3rem);
+    --text-sm:clamp(.75rem,7vw,.95rem) !important;
+    --text-xs:clamp(.65rem,7vw,.8rem);
+    --text-small:clamp(.4rem,7vw,.65rem);
+    --text-fine:clamp(.3rem,7vw,.5rem);
+  }
+}

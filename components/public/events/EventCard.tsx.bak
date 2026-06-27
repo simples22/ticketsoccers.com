@@ -1,0 +1,47 @@
+﻿import Link from "next/link";
+import PBImage from "@/components/ui/PBImage";
+import type { UiEvent } from "@/lib/tevo/types";
+import { formatPrice } from "@/lib/tevo/mapper";
+
+function splitDate(iso: string) {
+  const d = new Date(iso);
+  return {
+    month: d.toLocaleString("en-US", { month: "short" }).toUpperCase(),
+    day: String(d.getDate()),
+  };
+}
+
+export default function EventCard({ event }: { event: UiEvent }) {
+  const { month, day } = splitDate(event.date);
+
+  return (
+    <Link href={`/events/${event.slug}`} className="tslnEventCard">
+      <div className="tslnEventCardMedia">
+        <PBImage
+          src={`/events/${event.id}.jpg`}
+          alt={event.name}
+          fill
+          className="tslnEventCardImg"
+          sizes="(max-width:768px) 50vw, 20vw"
+        />
+        <span className="tslnEventCardDate">
+          <small>{month}</small>
+          <strong>{day}</strong>
+        </span>
+      </div>
+
+      <div className="tslnEventCardBody">
+        <h3 className="tslnEventCardTitle">{event.name}</h3>
+        <span className="tslnEventCardMeta">
+          {event.venueName}{event.city ? `, ${event.city}` : ""}
+        </span>
+        <div className="tslnEventCardFooter">
+          <span className="tslnEventCardFrom">From</span>
+          <span className="tslnEventCardPrice">
+            {event.minPrice != null ? formatPrice(event.minPrice) : "See tickets"}
+          </span>
+        </div>
+      </div>
+    </Link>
+  );
+}

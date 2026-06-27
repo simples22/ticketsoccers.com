@@ -1,0 +1,11 @@
+import HeroPage from "@/components/public/HeroPage";
+import PopularEvents from "@/components/public/home/PopularEvents";
+
+export default function HomePage() {
+  return (
+    <>
+      <HeroPage />
+      <PopularEvents />
+    </>
+  );
+}

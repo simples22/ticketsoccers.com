@@ -1,5 +1,8 @@
+﻿import type { ReactNode, ElementType } from "react";
+
 type UiTitleProps = {
-  children: React.ReactNode;
+  children: ReactNode;
+  as?: ElementType;
   center?: boolean;
   light?: boolean;
   className?: string;
@@ -7,20 +10,23 @@ type UiTitleProps = {
 
 export default function UiTitle({
   children,
+  as: Tag = "h2",
   center = false,
   light = false,
   className = "",
 }: UiTitleProps) {
   return (
-    <h2
+    <Tag
       className={[
         "uiTitle",
         center ? "uiTitleCenter" : "",
         light ? "uiTitleLight" : "",
         className,
-      ].join(" ")}
+      ]
+        .filter(Boolean)
+        .join(" ")}
     >
       {children}
-    </h2>
+    </Tag>
   );
 }

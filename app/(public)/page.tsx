@@ -1,5 +1,6 @@
-
-import HeroPage from "@/components/public/HeroPage";
+﻿import HeroPage from "@/components/public/home/HeroPage";
+import PopularEvents from "@/components/public/home/PopularEvents";
+import GeoEventsSection from "@/components/public/home/GeoEventsSection";
 import ChronoPageBtn from "@/components/public/ChronoPageBtn";
 import SponsoredGrid from "@/components/public/SponsoredGrid";
 import CategorySection from "@/components/public/categories/CategorySection";
@@ -16,14 +17,22 @@ export default function Home() {
         <HeroPage />
       </UiSectionLoader>
 
-      <UiSectionLoader delay={700}>
-        <CategorySection />
+      <UiSectionLoader delay={500}>
+        <PopularEvents />
+      </UiSectionLoader>
+
+      <UiSectionLoader delay={600}>
+        <GeoEventsSection />
       </UiSectionLoader>
 
       <main className="tslnComingPage">
         <UiSectionLoader delay={900}>
           <Publicity />
         </UiSectionLoader>
+
+      <UiSectionLoader delay={700}>
+        <CategorySection />
+      </UiSectionLoader>
 
         <UiSectionLoader delay={1100}>
           <SponsoredGrid />
@@ -33,9 +42,11 @@ export default function Home() {
           <TrustGrid />
         </UiSectionLoader>
 
+{/*
         <UiSectionLoader delay={1500}>
           <UiImageMasonryGrid />
         </UiSectionLoader>
+*/}
 
         <UiSectionLoader delay={1700}>
           <ChronoPageBtn />

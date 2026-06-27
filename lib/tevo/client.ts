@@ -1,0 +1,77 @@
+import crypto from "crypto";
+import { mockTevoEvents, mockTicketGroups } from "./mocks";
+
+const PROD = process.env.TEVO_ENV === "production";
+const HOST = PROD ? "api.ticketevolution.com" : "api.sandbox.ticketevolution.com";
+const VERSION = "/v9";
+const BASE = `https://${HOST}${VERSION}`;
+const TOKEN = process.env.TEVO_API_TOKEN ?? "";
+const SECRET = process.env.TEVO_API_SECRET ?? "";
+const USE_MOCKS = process.env.TEVO_MOCKS === "1";
+
+export class TevoError extends Error {
+  constructor(public status: number, public body: string) {
+    super(`TEvo ${status}: ${body.slice(0, 200)}`);
+  }
+}
+
+function sortedQuery(params: Record<string, string | number | boolean | undefined>): string {
+  return Object.entries(params)
+    .filter(([, v]) => v !== undefined && v !== null && v !== "")
+    .map(([k, v]) => [k, String(v)] as [string, string])
+    .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
+    .map(([k, v]) => `${k}=${encodeURIComponent(v)}`)
+    .join("&");
+}
+
+function sign(method: string, path: string, signedTail: string): string {
+  const source = `${method} ${HOST}${VERSION}${path}?${signedTail}`;
+  return crypto.createHmac("sha256", SECRET).update(source, "utf8").digest("base64");
+}
+
+interface FetchOpts {
+  query?: Record<string, string | number | boolean | undefined>;
+  body?: unknown;
+  revalidate?: number;
+}
+
+export async function tevoFetch<T>(method: "GET" | "POST" | "PUT" | "DELETE", path: string, opts: FetchOpts = {}): Promise<T> {
+  const q = sortedQuery(opts.query ?? {});
+  const bodyStr = opts.body !== undefined ? JSON.stringify(opts.body) : "";
+  const signedTail = method === "GET" ? q : (bodyStr || q);
+  const signature = sign(method, path, signedTail);
+  const url = `${BASE}${path}${method === "GET" && q ? `?${q}` : ""}`;
+
+  const res = await fetch(url, {
+    method,
+    headers: {
+      "X-Token": TOKEN,
+      "X-Signature": signature,
+      "Accept": "application/json",
+      "Content-Type": "application/json",
+    },
+    body: bodyStr || undefined,
+    next: opts.revalidate !== undefined ? { revalidate: opts.revalidate } : undefined,
+  });
+
+  if (!res.ok) throw new TevoError(res.status, await res.text());
+  return (await res.json()) as T;
+}
+
+export const tevo = {
+  listEvents: (query: Record<string, string | number | undefined>) =>
+    USE_MOCKS
+      ? Promise.resolve({ events: mockTevoEvents, total_entries: mockTevoEvents.length })
+      : tevoFetch<{ events: import("./types").TevoEvent[]; total_entries: number }>("GET", "/events", { query, revalidate: 120 }),
+  getEvent: (id: number) =>
+    USE_MOCKS
+      ? Promise.resolve(mockTevoEvents.find((e) => e.id === id) ?? mockTevoEvents[0])
+      : tevoFetch<import("./types").TevoEvent>("GET", `/events/${id}`, { revalidate: 120 }),
+  listTicketGroups: (eventId: number) =>
+    USE_MOCKS
+      ? Promise.resolve({ ticket_groups: mockTicketGroups })
+      : tevoFetch<{ ticket_groups: import("./types").TevoTicketGroup[] }>(
+          "GET", "/ticket_groups", { query: { event_id: eventId, lightweight: true }, revalidate: 15 }),
+  createOrder: (body: unknown) => tevoFetch<{ orders: Array<{ id: number; state: string }> }>("POST", "/orders", { body }),
+  getOrder: (id: number) => tevoFetch<{ id: number; state: string }>("GET", `/orders/${id}`),
+};

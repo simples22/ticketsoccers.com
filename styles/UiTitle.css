@@ -5,10 +5,10 @@
 .uiTitle{
   position:relative;
   display:inline-block;
-  margin:0 0 1.25rem;
+  margin:.55rem 0 .5rem;
   color:var(--tsln-blue-dark);
-  font-size:1.35rem !important;
-  font-weight:var(--font-weight-h1);
+  font-size:1.15rem !important;
+  font-weight:var(--font-weight-title);
   line-height:var(--lh-tight);
   letter-spacing:var(--letter-normal);
 }
@@ -47,10 +47,6 @@
 /* MOBILE */
 
 @media(max-width:768px){
-
-  .uiTitle{
-    font-size:var(--text-lg);
-  }
 
   .uiTitle::after{
     width:3rem;

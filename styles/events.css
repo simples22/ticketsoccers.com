@@ -1,0 +1,125 @@
+﻿
+
+/* =========================================
+   UI CAROUSEL UNIVERSAL
+========================================= */
+
+.uiCarousel{
+  width:100%;
+  padding:3rem var(--container-padding);
+}
+
+.uiCarouselHead{
+  width:min(100%, var(--container-max));
+  margin:0 auto 1rem;
+}
+
+.uiCarouselHead h2{
+  margin:0;
+  color:var(--tsln-blue-dark);
+  font-size:var(--text-xl);
+  font-weight:var(--font-weight-h1);
+}
+
+.uiCarouselHead p{
+  margin:.5rem 0 0;
+  color:var(--tsln-muted);
+  line-height:1.6;
+}
+
+.uiCarouselTrack{
+  width:min(100%, var(--container-max));
+  margin-inline:auto;
+  display:flex;
+  gap:1rem;
+  overflow-x:auto;
+  overflow-y:hidden;
+  padding:.25rem 0 1rem;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+  scroll-snap-type:x proximity;
+  -webkit-overflow-scrolling:touch;
+}
+
+.uiCarouselTrack::-webkit-scrollbar{
+  display:none;
+}
+
+.uiCarouselTrack > *{
+  flex:0 0 auto;
+  scroll-snap-align:start;
+}
+
+.uiCarouselSkeletonCard{
+  width:18rem;
+  min-height:16rem;
+  flex:0 0 18rem;
+}
+
+@media(max-width:768px){
+  .uiCarousel{
+    padding:2.5rem 1rem;
+  }
+
+  .uiCarouselSkeletonCard{
+    width:16rem;
+    flex-basis:16rem;
+  }
+}
+
+.tslnBadge{
+  display:inline-flex;
+  align-items:center;
+  min-height:1.75rem;
+  padding:0 .65rem;
+  border-radius:999px;
+  background:var(--tsln-bg-muted);
+  color:var(--tsln-blue-dark);
+  font-size:.75rem;
+  font-weight:700;
+}
+
+.tslnBadge--hot,
+.tslnBadge--featured{
+  background:var(--tsln-blue);
+  color:var(--tsln-white);
+}
+
+.tslnBadge--soldout{
+  background:#111827;
+  color:#fff;
+}
+
+.tslnPriceTag{
+  display:inline-grid;
+  gap:.15rem;
+}
+
+.tslnPriceTag small{
+  color:var(--tsln-muted);
+  font-size:var(--text-sm);
+}
+
+.tslnPriceTag strong{
+  color:var(--tsln-blue-dark);
+}
+
+.tslnTopUpLoader{
+  display:inline-flex;
+  gap:.35rem;
+}
+
+.tslnTopUpLoader span{
+  width:.5rem;
+  height:.5rem;
+  border-radius:999px;
+  background:var(--tsln-blue);
+}
+
+.tslnEmptyState{
+  padding:2rem;
+  border:1px solid var(--tsln-border);
+  border-radius:var(--radius-sm);
+  background:var(--tsln-white);
+  text-align:center;
+}
