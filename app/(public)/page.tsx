@@ -10,6 +10,8 @@ import UiImageMasonryGrid from "@/components/ui/UiImageMasonryGrid";
 import UiSectionLoader from "@/components/ui/UiSectionLoader";
 import EventFilterBar from "@/components/public/search/EventFilterBar";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <>
@@ -55,3 +57,4 @@ export default function Home() {
     </>
   );
 }
+
